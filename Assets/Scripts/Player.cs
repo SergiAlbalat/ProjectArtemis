@@ -7,8 +7,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private InputSystem_Actions _inputActions;
     private MoveBehaviour _mB;
     private Vector2 _direction;
-    [SerializeField] private Camera playerCamera;
-    [SerializeField] private float rotateSpeed = 10;
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
