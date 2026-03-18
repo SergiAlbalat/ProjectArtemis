@@ -32,4 +32,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         _direction = context.ReadValue<Vector2>();
     }
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        throw new System.NotImplementedException();
+    }
 }
