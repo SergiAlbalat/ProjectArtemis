@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -5,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private Vector3 _navDestination;
+    public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform playerPosition;
     private void Awake()
@@ -34,7 +36,22 @@ public class Enemy : MonoBehaviour
         if(Physics.Linecast(transform.position, playerPosition.position))
         {
             Vector3 direction = playerPosition.position - transform.position;
-            Instantiate(projectile, transform.position, Quaternion.LookRotation(direction));
+            SpawnProjectile(direction);
+        }
+    }
+    private void SpawnProjectile(Vector3 direction)
+    {
+        if(_projectileStack.Count > 0)
+        {
+            GameObject proj = _projectileStack.Pop();
+            proj.transform.position = transform.position;
+            proj.transform.rotation = Quaternion.LookRotation(direction);
+            proj.SetActive(true);
+        }
+        else
+        {
+            GameObject proj = Instantiate(projectile, transform.position, Quaternion.LookRotation(direction));
+            proj.GetComponent<Projectile>().enemy = this;
         }
     }
 }
