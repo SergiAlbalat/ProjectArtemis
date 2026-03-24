@@ -639,11 +639,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseManager
   _buildingPoints:
   - location: {fileID: 202429768}
+    level: 0
+    buildType: 0
     structure: {fileID: 11400000, guid: f52613f7ef3496e4dbcbdb48b75c01b8, type: 2}
   - location: {fileID: 1687140797}
+    level: 0
+    buildType: 0
     structure: {fileID: 11400000, guid: f52613f7ef3496e4dbcbdb48b75c01b8, type: 2}
   - location: {fileID: 2091978823}
+    level: 0
+    buildType: 0
     structure: {fileID: 11400000, guid: f52613f7ef3496e4dbcbdb48b75c01b8, type: 2}
+  registry: {fileID: 11400000, guid: a34329bd06db49045af426f324d0234e, type: 2}
 --- !u!4 &898400332
 Transform:
   m_ObjectHideFlags: 0

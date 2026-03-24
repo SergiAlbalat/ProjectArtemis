@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 973fec6b3366c204ca4a051b847c1cf6, type: 3}
-  m_Name: EmptyLot1
+  m_Name: Buildings
   m_EditorClassIdentifier: Assembly-CSharp::Stuctures
-  buildName: EmptyLot1
-  building: 0
-  prefab: {fileID: 2567061975336068658, guid: e9dd0f753c5a55b46b7e986becdf9afd, type: 3}
+  buildings:
+  - building: 0
+    levels:
+    - {fileID: 2567061975336068658, guid: e9dd0f753c5a55b46b7e986becdf9afd, type: 3}
+  - building: 1
+    levels:
+    - {fileID: 6812648439844423373, guid: 72bb384d6937bb14d995e49765d20e60, type: 3}
