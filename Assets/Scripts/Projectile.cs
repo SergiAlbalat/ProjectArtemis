@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(FloatBehaviour))]
 
@@ -24,6 +25,19 @@ public class Projectile : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        StartCoroutine(DespawnCooldown());
+        if (hit.gameObject.CompareTag("Player"))
+        {
+            Player player = hit.gameObject.GetComponent<Player>();
+            if (!player.stuned)
+            {
+                player.stuned = true;
+            }
+        }
+    }
+    private IEnumerator DespawnCooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
         Despawn();
     }
 }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -1124889083748103798}
   m_Layer: 8
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,3 +164,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b03c1c141283249af04e18650bf1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  enemy: {fileID: 0}
