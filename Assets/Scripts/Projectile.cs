@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
             Player player = hit.gameObject.GetComponent<Player>();
             if (!player.stuned)
             {
-                player.stuned = true;
+                player.StartStun();
             }
         }
     }
