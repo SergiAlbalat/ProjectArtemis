@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseManager : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class BaseManager : MonoBehaviour
                 continue;
             }
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     public void levelUpBuilding(Transform buildPosition)
     {
@@ -61,5 +63,23 @@ public class BaseManager : MonoBehaviour
         if (prefab == null) return;
         buildLocation.structure = Instantiate(prefab, buildLocation.location.position, Quaternion.identity);
         buildLocation.buildType = type;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //Change to game manager
+    {
+        if(scene == SceneManager.GetSceneByName("Base"))
+        {
+            SaveEnemy();
+        }
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void SaveEnemy()
+    {
+        List<BuildingPoint> harvesters = new List<BuildingPoint>();
+        harvesters.AddRange(_buildingPoints.Where(a => a.buildType == BuildType.Harvester).ToList());
+        BuildingPoint harvester = harvesters.FirstOrDefault(a => a.structure.GetComponent<Harvester>().containedEnemy != null);
+        harvester.structure.GetComponent<Harvester>().StoreEnemy();
     }
 }

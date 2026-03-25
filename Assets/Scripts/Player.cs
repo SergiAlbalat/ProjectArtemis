@@ -29,7 +29,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     private void Update()
     {
         _mB.PlayerMove(new Vector3(_direction.x, 0, _direction.y));
-        Debug.Log(inRange);
     }
     public void OnMove(InputAction.CallbackContext context)
     {
