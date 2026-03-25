@@ -19,9 +19,6 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "50596038-f5f0-49bb-9f96-d7d3f17a671f",
-                    "name": "StunAttack",
-                    "type": "Button",
-                    "id": "61350398-2aac-4d74-88c5-7e12f848e32c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -31,6 +28,15 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "1d28b856-0592-4bae-81aa-15e333a8be9b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StunAttack",
+                    "type": "Button",
+                    "id": "64b5a5a2-4667-49a8-ab54-0a579a4d2336",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -178,6 +184,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f49c1ca8-74b7-4b05-9509-b908a9a3bd2a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "StunAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce0ae484-0412-434a-94d1-6dfd9bdc72a2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
