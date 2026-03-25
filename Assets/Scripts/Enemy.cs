@@ -38,9 +38,9 @@ public class Enemy : MonoBehaviour, IStun
     {
         _agent.SetDestination(_navDestination);
         Debug.Log(CurrentHP);
-        if (CurrentHP == 0)
+        if (CurrentHP <= 0)
         {
-            SceneManager.LoadScene("Base");
+            GameManager.gm.CaptureEnemy(gameObject);
         }
     }
     private void ThrowProjectile()
