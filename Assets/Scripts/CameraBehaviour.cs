@@ -32,7 +32,6 @@ public class CameraBehaviour : MonoBehaviour, InputSystem_Actions.ICameraActions
     public void OnLook(InputAction.CallbackContext context)
     {
         _lookInput = context.ReadValue<Vector2>();
-        Debug.Log(_lookInput);
     }
 
     private void LateUpdate()

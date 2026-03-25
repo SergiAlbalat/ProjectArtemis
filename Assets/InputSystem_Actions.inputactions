@@ -19,6 +19,18 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "50596038-f5f0-49bb-9f96-d7d3f17a671f",
+                    "name": "StunAttack",
+                    "type": "Button",
+                    "id": "61350398-2aac-4d74-88c5-7e12f848e32c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "1d28b856-0592-4bae-81aa-15e333a8be9b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",

@@ -4,6 +4,7 @@ using UnityEngine;
 public class MoveBehaviour : MonoBehaviour
 {
     private CharacterController _cC;
+    private Vector3 movement;
     [SerializeField] private float velocity = 10;
     private void Awake()
     {
@@ -11,10 +12,13 @@ public class MoveBehaviour : MonoBehaviour
     }
     public void PlayerMove(Vector3 direction)
     {
-        Vector3 movement = direction.x * transform.right + direction.z * transform.forward;
-        Move(movement);
+        movement = direction.x * transform.right + direction.z * transform.forward;
     }
     public void Move(Vector3 movement)
+    {
+        this.movement = movement;
+    }
+    private void FixedUpdate()
     {
         _cC.Move(movement * velocity * Time.deltaTime);
     }
