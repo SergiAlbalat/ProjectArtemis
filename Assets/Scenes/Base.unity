@@ -797,8 +797,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678589ab2713d8747b40a43306b39631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  interactRange: 5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 512
   playerCamera: {fileID: 330585545}
-  rotateSpeed: 10
+  inRange: 1
+  nearEnemy: {fileID: 0}
+  stuned: 0
 --- !u!114 &1229682428
 MonoBehaviour:
   m_ObjectHideFlags: 0

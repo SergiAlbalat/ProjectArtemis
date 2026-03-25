@@ -1,10 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Scripting;
 [RequireComponent(typeof(MoveBehaviour))]
 
 public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
 {
+    [SerializeField] private float interactRange = 2f;
+    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private Camera playerCamera;
     private InputSystem_Actions _inputActions;
     private MoveBehaviour _mB;
     private Vector2 _direction;
@@ -37,7 +41,15 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (!context.performed) return;
+        Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Debug.Log("interact");
+        
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactableLayer))
+        {
+            Debug.Log(hit.collider.name);
+            hit.collider.GetComponent<IInteractable>()?.Interact();
+        }
     }
     public void StartStun()
     {

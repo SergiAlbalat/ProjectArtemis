@@ -39,7 +39,7 @@ public class BaseManager : MonoBehaviour
     }
     public void levelUpBuilding(Transform buildPosition)
     {
-        BuildingPoint building = _buildingPoints.FirstOrDefault(a => a.location == buildPosition);
+        BuildingPoint building = _buildingPoints.FirstOrDefault(a => a.location.position == buildPosition.position);
         if (building == null) { Debug.LogWarning("No building found at position"); return; }
         if (building.buildType == BuildType.Empty)
         {
