@@ -16,6 +16,9 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "50596038-f5f0-49bb-9f96-d7d3f17a671f",
                     "name": "StunAttack",
                     "type": "Button",
                     "id": "61350398-2aac-4d74-88c5-7e12f848e32c",
@@ -169,23 +172,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a9e3ec81-2fab-4ec5-bed7-e388b5699952",
+                    "id": "b010f3d3-c4a3-40c6-9f81-85182f77cc00",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "StunAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f44585af-8322-46f6-8fe2-ed97c8cf2900",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Attack",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
