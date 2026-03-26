@@ -34,7 +34,7 @@ public class CameraBehaviour : MonoBehaviour, InputSystem_Actions.ICameraActions
         _lookInput = context.ReadValue<Vector2>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (_lookInput.sqrMagnitude < 0.01f) return;
 

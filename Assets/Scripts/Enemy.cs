@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour, IStun
     private Vector3 _navDestination;
     public int CurrentHP;
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
+    public bool captured = false;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform playerPosition;
     [SerializeField] private SOEnemies enemyData;
@@ -36,15 +37,20 @@ public class Enemy : MonoBehaviour, IStun
     }
     private void Update()
     {
-        _agent.SetDestination(_navDestination);
-        Debug.Log(CurrentHP);
-        if (CurrentHP <= 0)
+        if (!captured)
         {
-            GameManager.gm.CaptureEnemy(enemyData);
+            _agent.SetDestination(_navDestination);
+            Debug.Log(CurrentHP);
+            if (CurrentHP <= 0)
+            {
+                GameManager.gm.CaptureEnemy(enemyData);
+            }
         }
     }
     private void ThrowProjectile()
     {
+        if (captured)
+            return;
         if(Physics.Linecast(transform.position, playerPosition.position) && !stuned)
         {
             Vector3 direction = playerPosition.position - transform.position;

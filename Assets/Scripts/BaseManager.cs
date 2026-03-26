@@ -83,7 +83,7 @@ public class BaseManager : MonoBehaviour
         Debug.Log("enemigo en base");
         List<BuildingPoint> harvesters = new List<BuildingPoint>();
         harvesters.AddRange(_buildingPoints.Where(a => a.buildType == BuildType.Harvester).ToList());
-        BuildingPoint harvester = harvesters.FirstOrDefault(a => a.structure.GetComponent<Harvester>().containedEnemy != null);
+        BuildingPoint harvester = harvesters.FirstOrDefault(a => a.structure.GetComponent<Harvester>().containedEnemy == null);
         harvester.structure.GetComponent<Harvester>().StoreEnemy();
     }
 }
