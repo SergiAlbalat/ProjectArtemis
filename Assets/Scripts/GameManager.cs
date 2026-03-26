@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
-    public GameObject capturedEnemy;
+    public SOEnemies capturedEnemy;
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -19,9 +19,14 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Base");
     }
-    public void CaptureEnemy(GameObject enemy)
+    public void LoadBattle()
+    {
+        SceneManager.LoadScene("Battle");
+    }
+    public void CaptureEnemy(SOEnemies enemy)
     {
         capturedEnemy = enemy;
+        Debug.Log("Capturando");
         LoadBase();
     }
     private void ShowUI()

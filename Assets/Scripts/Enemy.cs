@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour, IStun
         Debug.Log(CurrentHP);
         if (CurrentHP <= 0)
         {
-            GameManager.gm.CaptureEnemy(gameObject);
+            GameManager.gm.CaptureEnemy(enemyData);
         }
     }
     private void ThrowProjectile()

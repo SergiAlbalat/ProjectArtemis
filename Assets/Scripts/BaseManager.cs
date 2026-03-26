@@ -8,7 +8,7 @@ public class BaseManager : MonoBehaviour
     [System.Serializable]
     public class BuildingPoint
     {
-        public Transform location;
+        public Vector3 location;
         public int level;
         public BuildType buildType;
         public GameObject structure;
@@ -27,21 +27,11 @@ public class BaseManager : MonoBehaviour
         }
         bm = this;
         DontDestroyOnLoad(gameObject);
-        foreach (var point in _buildingPoints)
-        {
-            if (point.structure == null)
-            {
-                Debug.Log("No build found, creating empty lot");
-                point.level = 0;
-                PlaceBuilding(BuildType.Empty, point);
-                continue;
-            }
-        }
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     public void levelUpBuilding(Transform buildPosition)
     {
-        BuildingPoint building = _buildingPoints.FirstOrDefault(a => a.location.position == buildPosition.position);
+        BuildingPoint building = _buildingPoints.FirstOrDefault(a => a.location == buildPosition.position);
         if (building == null) { Debug.LogWarning("No building found at position"); return; }
         if (building.buildType == BuildType.Empty)
         {
@@ -54,6 +44,17 @@ public class BaseManager : MonoBehaviour
             PlaceBuilding(building.buildType, building);
         }
     }
+    private void BuildBase()
+    {
+        foreach (var point in _buildingPoints)
+        {
+            Debug.Log("No build found, creating empty lot");
+            if(point.buildType == BuildType.Empty)
+                point.level = 0;
+            PlaceBuilding(point.buildType, point);
+            continue;
+        }
+    }
     public void PlaceBuilding(BuildType type, BuildingPoint buildLocation)
     {
         if (buildLocation.structure != null)
@@ -61,14 +62,16 @@ public class BaseManager : MonoBehaviour
 
         var prefab = registry.GetBuilding(type, buildLocation.level);
         if (prefab == null) return;
-        buildLocation.structure = Instantiate(prefab, buildLocation.location.position, Quaternion.identity);
+        buildLocation.structure = Instantiate(prefab, buildLocation.location, Quaternion.identity);
         buildLocation.buildType = type;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //Change to game manager
     {
         if(scene == SceneManager.GetSceneByName("Base"))
         {
-            SaveEnemy();
+            BuildBase();
+            if(GameManager.gm.capturedEnemy != null)
+                SaveEnemy();
         }
     }
     private void OnDestroy()
@@ -77,6 +80,7 @@ public class BaseManager : MonoBehaviour
     }
     private void SaveEnemy()
     {
+        Debug.Log("enemigo en base");
         List<BuildingPoint> harvesters = new List<BuildingPoint>();
         harvesters.AddRange(_buildingPoints.Where(a => a.buildType == BuildType.Harvester).ToList());
         BuildingPoint harvester = harvesters.FirstOrDefault(a => a.structure.GetComponent<Harvester>().containedEnemy != null);

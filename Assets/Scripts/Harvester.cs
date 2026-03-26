@@ -8,7 +8,7 @@ public class Harvester : MonoBehaviour
     {
         if (GameManager.gm.capturedEnemy != null && containedEnemy == null)
         {
-            containedEnemy = GameManager.gm.capturedEnemy;
+            containedEnemy = GameManager.gm.capturedEnemy.prefab;
             GameManager.gm.capturedEnemy = null;
         }
         if (containedEnemy != null)
