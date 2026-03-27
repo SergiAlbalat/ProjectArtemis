@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBehaviour
   player: {fileID: 1229682426}
-  sensitivity: 0.05
+  sensitivity: 0.06
   topClamp: 45
   bottomClamp: -60
 --- !u!1 &2091978822

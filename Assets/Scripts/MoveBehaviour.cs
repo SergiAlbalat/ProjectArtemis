@@ -14,12 +14,9 @@ public class MoveBehaviour : MonoBehaviour
     {
         movement = direction.x * transform.right + direction.z * transform.forward;
     }
-    public void Move(Vector3 movement)
-    {
-        this.movement = movement;
-    }
+    
     private void FixedUpdate()
     {
-        _cC.Move(movement * velocity * Time.deltaTime);
+        _cC.Move(Time.deltaTime * velocity * movement);
     }
 }
