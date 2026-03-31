@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class BaseManager : MonoBehaviour
 
     [SerializeField] private List<BuildingPoint> _buildingPoints = new List<BuildingPoint>();
     [SerializeField] private StucturesData registry;
+    [SerializeField] private EnemiesContained enemiesInBase;
 
     private void Awake()
     {
@@ -35,7 +37,7 @@ public class BaseManager : MonoBehaviour
         if (building == null) { Debug.LogWarning("No building found at position"); return; }
         if (building.buildType == BuildType.Empty)
         {
-            building.level = 1;
+            building.level = 0;
             PlaceBuilding(BuildType.Harvester, building);
         }
         else
@@ -64,15 +66,34 @@ public class BaseManager : MonoBehaviour
         if (prefab == null) return;
         buildLocation.structure = Instantiate(prefab, buildLocation.location, Quaternion.identity);
         buildLocation.buildType = type;
+        if (type == BuildType.Harvester) //If more build types are added that do more stuff, change to a switch
+        {
+            InstantiateEnemy(buildLocation);
+        }
+    }
+    public void InstantiateEnemy(BuildingPoint build)
+    {
+        if (enemiesInBase.CheckBuilding(build.location))
+        {
+            Debug.Log(build.structure);
+            var harvester = build.structure.GetComponent<Harvester>();
+            harvester.InstanciateEnemies(enemiesInBase.GetEnemyByBuild(build.location));
+        }
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //Change to game manager
-    {
-        if(scene == SceneManager.GetSceneByName("Base"))
+    {   
+        if (scene == SceneManager.GetSceneByName("Base"))
         {
-            BuildBase();
-            if(GameManager.gm.capturedEnemy != null)
-                SaveEnemy();
+            StartCoroutine(InitBase());
         }
+    }
+    private IEnumerator InitBase()
+    {
+        BuildBase();
+        yield return null; // wait one frame for Awake/Start to run
+
+        if (GameManager.gm.capturedEnemy != null)
+            SaveEnemy();
     }
     private void OnDestroy()
     {
@@ -81,9 +102,17 @@ public class BaseManager : MonoBehaviour
     private void SaveEnemy()
     {
         Debug.Log("enemigo en base");
-        List<BuildingPoint> harvesters = new List<BuildingPoint>();
-        harvesters.AddRange(_buildingPoints.Where(a => a.buildType == BuildType.Harvester).ToList());
-        BuildingPoint harvester = harvesters.FirstOrDefault(a => a.structure.GetComponent<Harvester>().containedEnemy == null);
-        harvester.structure.GetComponent<Harvester>().StoreEnemy();
+
+        BuildingPoint harvester = _buildingPoints
+            .Where(a => a.buildType == BuildType.Harvester)
+            .FirstOrDefault(a => !enemiesInBase.CheckBuilding(a.location));
+
+        if (harvester == null)
+        {
+            Debug.LogWarning("No available Harvester found to store enemy.");
+            return;
+        }
+
+        enemiesInBase.StoreEnemy(harvester.location, GameManager.gm.capturedEnemy.prefab);
     }
 }

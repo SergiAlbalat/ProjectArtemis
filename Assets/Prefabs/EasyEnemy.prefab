@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6092638835018558795}
   - component: {fileID: 7139656582214290917}
   - component: {fileID: 4480707741660116168}
-  - component: {fileID: 5305171010273950366}
+  - component: {fileID: 3380851420507611263}
   - component: {fileID: 5705630665270500805}
   - component: {fileID: 624076618088587553}
   m_Layer: 7
@@ -138,7 +138,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5305171010273950366
+--- !u!114 &3380851420507611263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 944156248257655990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307976f1d95f7b74398ecc2828c6a49e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d580e3a3037765419b0db975cc7d0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   CurrentHP: 0

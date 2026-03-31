@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour, IStun
     public bool captured = false;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform playerPosition;
-    [SerializeField] private SOEnemies enemyData;
+    [SerializeField] public SOEnemies enemyData;
     public bool stuned = false;
     private void Awake()
     {
