@@ -89,11 +89,10 @@ public class BaseManager : MonoBehaviour
     }
     private IEnumerator InitBase()
     {
-        BuildBase();
-        yield return null; // wait one frame for Awake/Start to run
-
         if (GameManager.gm.capturedEnemy != null)
             SaveEnemy();
+        yield return null; // wait one frame for Awake/Start to run
+        BuildBase();
     }
     private void OnDestroy()
     {

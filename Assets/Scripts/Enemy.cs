@@ -22,6 +22,10 @@ public class Enemy : MonoBehaviour, IStun
         _navDestination = transform.position;
         InvokeRepeating("ThrowProjectile", 2, 2);
         CurrentHP = enemyData.MaxHP;
+        if(SceneManager.GetActiveScene().name == "Base")
+        {
+            captured = true;
+        }
     }
     private void OnTriggerStay(Collider other)
     {

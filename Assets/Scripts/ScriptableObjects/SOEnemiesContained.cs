@@ -22,6 +22,7 @@ public class EnemiesContained : ScriptableObject
             existing.enemyData = enemy;
         else
             storedEnemies.Add(new StoredEnemyEntry { harvesterCoords = building, enemyData = enemy });
+        Debug.Log(storedEnemies.Count);
     }
 
     public GameObject GetEnemyByBuild(Vector3 building)
