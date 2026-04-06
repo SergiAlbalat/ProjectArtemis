@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ce75dc6fa1120459a1003654488984, type: 3}
   m_Name: EnemiesContained
   m_EditorClassIdentifier: Assembly-CSharp::EnemiesContained
-  storedEnemies: []
+  storedEnemies:
+  - harvesterCoords: {x: 17.4, y: 0, z: 14.9}
+    enemyData: {fileID: 944156248257655990, guid: c2852c8b53643d1408c94f2aa4a2a493, type: 3}
+  - harvesterCoords: {x: 7.4, y: 0, z: -19.3}
+    enemyData: {fileID: 944156248257655990, guid: c2852c8b53643d1408c94f2aa4a2a493, type: 3}

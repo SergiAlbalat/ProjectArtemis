@@ -82,7 +82,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
             {
                 if (inRange)
                 {
-                    nearEnemy.CurrentHP--;
+                    nearEnemy.OnHurt();
                 }
             }
         }

@@ -1,63 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+[RequireComponent(typeof(SphereCollider))]
 
 public class Enemy : MonoBehaviour, IStun
 {
     private NavMeshAgent _agent;
-    private Vector3 _navDestination;
-    public int CurrentHP;
+    private GameObject _player;
+    private int _currentHP;
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
     public bool captured = false;
+    private float _patrolRange;
+    private SONode _currentNode;
+    public Condition run;
+    public Condition die;
     [SerializeField] private GameObject projectile;
-    [SerializeField] private Transform playerPosition;
-    [SerializeField] public SOEnemies enemyData;
+    public SOEnemies enemyData;
+    [SerializeField] private SONode rootNode;
     public bool stuned = false;
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _navDestination = transform.position;
         InvokeRepeating("ThrowProjectile", 2, 2);
-        CurrentHP = enemyData.MaxHP;
-        if(SceneManager.GetActiveScene().name == "Base")
+        _currentHP = enemyData.MaxHP;
+        _patrolRange = GetComponent<SphereCollider>().radius;
+        run = new Condition("Run");
+        die = new Condition("Die");
+        if (SceneManager.GetActiveScene().name == "Base")
         {
             captured = true;
+        }
+        _currentNode = rootNode.Children.Last();
+        ChangeNode();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _player = other.gameObject;
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !stuned)
+        if (other.gameObject.CompareTag("Player") && !stuned && !captured)
         {
-            Vector3 direction = other.transform.position - transform.position;
-            _navDestination = transform.position - direction;
+            run.SetCheck(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        _navDestination = transform.position;
+        if(other.gameObject.CompareTag("Player") && !captured)
+        {
+            run.SetCheck(false);
+            _agent.SetDestination(transform.position);
+        }
     }
     private void Update()
     {
         if (!captured)
         {
-            _agent.SetDestination(_navDestination);
-            Debug.Log(CurrentHP);
-            if (CurrentHP <= 0)
-            {
-                GameManager.gm.CaptureEnemy(enemyData);
-            }
+            _currentNode.OnUpdate(this);
+            Debug.Log(_currentHP);
         }
     }
     private void ThrowProjectile()
     {
-        if (captured)
+        if (captured || !run.GetCheck() || _player == null)
             return;
-        if(Physics.Linecast(transform.position, playerPosition.position) && !stuned)
+        if(Physics.Linecast(transform.position, _player.transform.position) && !stuned)
         {
-            Vector3 direction = playerPosition.position - transform.position;
+            Vector3 direction = _player.transform.position - transform.position;
             SpawnProjectile(direction);
         }
     }
@@ -83,8 +100,70 @@ public class Enemy : MonoBehaviour, IStun
     public IEnumerator Stun()
     {
         stuned = true;
-        _navDestination = transform.position;
+        _agent.SetDestination(transform.position);
         yield return new WaitForSeconds(5);
         stuned = false;
+    }
+    public void ChangeNode()
+    {
+        StartCoroutine(WaitToTheEndOfFrame());
+    }
+    private IEnumerator WaitToTheEndOfFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        foreach (SONode node in rootNode.Children)
+        {
+            if (node.StartCondition(this))
+            {
+                if (_currentNode != null)
+                {
+                    _currentNode.OnEnd(this);
+                }
+                _currentNode = node;
+                _currentNode.OnStart(this);
+                break;
+            }
+        }
+    }
+    public void SetPatrolDestination()
+    {
+        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
+        {
+            Vector3 newDestination = GetRandomPoint(transform.position, _patrolRange);
+            if (newDestination != Vector3.zero)
+            {
+                _agent.SetDestination(newDestination);
+            }
+        }
+    }
+    private Vector3 GetRandomPoint(Vector3 center, float range)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPoint = center + Random.insideUnitSphere * range;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint, out hit, 1, NavMesh.AllAreas))
+            {
+                return hit.position;
+            }
+        }
+        return Vector3.zero;
+    }
+    public void RunUpdate()
+    {
+        if (!stuned)
+        {
+            Vector3 direction = _player.transform.position - transform.position;
+            _agent.SetDestination(transform.position - direction);
+        }
+    }
+    public void OnHurt()
+    {
+        _currentHP--;
+        if (_currentHP <= 0)
+        {
+            Debug.Log("Enemy died");
+            die.SetCheck(true);
+        }
     }
 }
