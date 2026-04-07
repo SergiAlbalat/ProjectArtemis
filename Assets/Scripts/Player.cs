@@ -89,4 +89,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
             }
         }
     }
+    public void AjustMovement(float debuff)
+    {
+        _mB.AjustVelocity(debuff);
+    }
 }

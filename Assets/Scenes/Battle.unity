@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb380be86ebf64d83f3790f0f5f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBehaviour
+  bootsData: {fileID: 11400000, guid: 13e5fa6226066ed4eb8c6c8e0e2925d4, type: 2}
   velocity: 20
 --- !u!143 &1229682429
 CharacterController:
@@ -1192,6 +1193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3380851420507611263, guid: c2852c8b53643d1408c94f2aa4a2a493, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1229682427}
     - target: {fileID: 4033835779749125418, guid: c2852c8b53643d1408c94f2aa4a2a493, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.08945

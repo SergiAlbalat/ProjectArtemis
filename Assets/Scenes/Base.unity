@@ -944,6 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb380be86ebf64d83f3790f0f5f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBehaviour
+  bootsData: {fileID: 11400000, guid: 13e5fa6226066ed4eb8c6c8e0e2925d4, type: 2}
   velocity: 10
 --- !u!143 &1229682429
 CharacterController:
@@ -1162,8 +1163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104c41076894e7245ba835e1e9a1777b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  bm: {fileID: 898400331}
   capturedEnemy: {fileID: 0}
   WeaponLevel: 1
+  BootsLevel: 1
 --- !u!4 &1390455859
 Transform:
   m_ObjectHideFlags: 0

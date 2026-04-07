@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BaseManager : MonoBehaviour
 {
@@ -29,7 +28,6 @@ public class BaseManager : MonoBehaviour
         }
         bm = this;
         DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     public void levelUpBuilding(Transform buildPosition)
     {
@@ -80,12 +78,9 @@ public class BaseManager : MonoBehaviour
             harvester.InstanciateEnemies(enemiesInBase.GetEnemyByBuild(build.location));
         }
     }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //Change to game manager
-    {   
-        if (scene == SceneManager.GetSceneByName("Base"))
-        {
-            StartCoroutine(InitBase());
-        }
+    public void LoadBase()
+    {
+        StartCoroutine(InitBase());
     }
     private IEnumerator InitBase()
     {
@@ -93,10 +88,6 @@ public class BaseManager : MonoBehaviour
             SaveEnemy();
         yield return null; // wait one frame for Awake/Start to run
         BuildBase();
-    }
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     private void SaveEnemy()
     {

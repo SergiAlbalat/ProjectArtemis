@@ -4,5 +4,6 @@ using UnityEngine;
 public class SOEnemies : ScriptableObject
 {
     public float MaxHP;
+    public float SpeedDebuff;
     public GameObject prefab;
 }

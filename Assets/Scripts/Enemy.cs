@@ -11,8 +11,9 @@ using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour, IStun
 {
     private NavMeshAgent _agent;
-    private GameObject _player;
+    [SerializeField] private Player player;
     private float _currentHP;
+    private float _speedDebuff;
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
     public bool captured = false;
     private float _patrolRange;
@@ -23,17 +24,21 @@ public class Enemy : MonoBehaviour, IStun
     public SOEnemies enemyData;
     [SerializeField] private SONode rootNode;
     public bool stuned = false;
-    private void Awake()
+    private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         InvokeRepeating("ThrowProjectile", 2, 2);
         _currentHP = enemyData.MaxHP;
+        _speedDebuff = enemyData.SpeedDebuff;
         _patrolRange = GetComponent<SphereCollider>().radius;
         run = new Condition("Run");
         die = new Condition("Die");
         if (SceneManager.GetActiveScene().name == "Base")
         {
             captured = true;
+        }else if(SceneManager.GetActiveScene().name == "Battle")
+        {
+            PlayerVelocityDebuff();
         }
         _currentNode = rootNode.Children.Last();
         ChangeNode();
@@ -42,7 +47,7 @@ public class Enemy : MonoBehaviour, IStun
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _player = other.gameObject;
+            player = other.GetComponent<Player>();
         }
     }
     private void OnTriggerStay(Collider other)
@@ -70,11 +75,11 @@ public class Enemy : MonoBehaviour, IStun
     }
     private void ThrowProjectile()
     {
-        if (captured || !run.GetCheck() || _player == null)
+        if (captured || !run.GetCheck() || player == null)
             return;
-        if(Physics.Linecast(transform.position, _player.transform.position) && !stuned)
+        if(Physics.Linecast(transform.position, player.transform.position) && !stuned)
         {
-            Vector3 direction = _player.transform.position - transform.position;
+            Vector3 direction = player.transform.position - transform.position;
             SpawnProjectile(direction);
         }
     }
@@ -153,7 +158,7 @@ public class Enemy : MonoBehaviour, IStun
     {
         if (!stuned)
         {
-            Vector3 direction = _player.transform.position - transform.position;
+            Vector3 direction = player.transform.position - transform.position;
             _agent.SetDestination(transform.position - direction);
         }
     }
@@ -165,5 +170,9 @@ public class Enemy : MonoBehaviour, IStun
             Debug.Log("Enemy died");
             die.SetCheck(true);
         }
+    }
+    private void PlayerVelocityDebuff()
+    {
+        player.AjustMovement(_speedDebuff);
     }
 }

@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
+    [SerializeField] private BaseManager bm;
     public SOEnemies capturedEnemy;
     public int WeaponLevel = 1;
+    public int BootsLevel = 1;
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
         }
         gm = this;
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     public void LoadBase()
     {
@@ -33,5 +36,16 @@ public class GameManager : MonoBehaviour
     private void ShowUI()
     {
 
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene == SceneManager.GetSceneByName("Base"))
+        {
+            bm.LoadBase();
+        }
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
