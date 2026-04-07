@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     public SOEnemies capturedEnemy;
+    public int WeaponLevel = 1;
     private void Awake()
     {
         if (gm != null && gm != this)

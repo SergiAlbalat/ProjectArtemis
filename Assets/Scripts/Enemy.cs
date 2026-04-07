@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour, IStun
 {
     private NavMeshAgent _agent;
     private GameObject _player;
-    private int _currentHP;
+    private float _currentHP;
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
     public bool captured = false;
     private float _patrolRange;
@@ -157,9 +157,9 @@ public class Enemy : MonoBehaviour, IStun
             _agent.SetDestination(transform.position - direction);
         }
     }
-    public void OnHurt()
+    public void OnHurt(float damage)
     {
-        _currentHP--;
+        _currentHP -= damage;
         if (_currentHP <= 0)
         {
             Debug.Log("Enemy died");

@@ -807,6 +807,7 @@ GameObject:
   - component: {fileID: 1229682429}
   - component: {fileID: 1229682428}
   - component: {fileID: 1229682427}
+  - component: {fileID: 1229682430}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -969,6 +970,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1229682430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229682422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89322ec0ea15fe948acebe167972f466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  weaponsData: {fileID: 11400000, guid: b9138bfd73100734fbcfd27519784ffa, type: 2}
 --- !u!1 &1236546184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   capturedEnemy: {fileID: 0}
+  WeaponLevel: 1
 --- !u!4 &1390455859
 Transform:
   m_ObjectHideFlags: 0

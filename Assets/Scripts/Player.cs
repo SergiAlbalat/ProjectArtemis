@@ -11,6 +11,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     [SerializeField] private Camera playerCamera;
     private InputSystem_Actions _inputActions;
     private MoveBehaviour _mB;
+    private Weapon _currentWeapon;
     private Vector2 _direction;
     public bool inRange = false;
     public Enemy nearEnemy = null;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         _mB = GetComponent<MoveBehaviour>();
         _inputActions = new InputSystem_Actions();
         _inputActions.Player.SetCallbacks(this);
+        _currentWeapon = GetComponent<Weapon>();
         Cursor.lockState = CursorLockMode.Locked;
     }
     private void OnEnable()
@@ -82,7 +84,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
             {
                 if (inRange)
                 {
-                    nearEnemy.OnHurt();
+                    _currentWeapon.Attack(nearEnemy);
                 }
             }
         }
