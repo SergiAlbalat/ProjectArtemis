@@ -13,4 +13,12 @@ public class Weapon : MonoBehaviour
     {
         enemy.OnHurt(_damage);
     }
+    public void LevelUp()
+    {
+        if(GameManager.gm.WeaponLevel < weaponsData.levels.Count)
+        {
+            GameManager.gm.WeaponLevel++;
+            _damage = weaponsData.levels[GameManager.gm.WeaponLevel - 1];
+        }
+    }
 }

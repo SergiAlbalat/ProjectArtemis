@@ -46,4 +46,12 @@ public class CameraBehaviour : MonoBehaviour, InputSystem_Actions.ICameraActions
         player.rotation = Quaternion.Euler(0, _yaw, 0.0f);
         transform.rotation = Quaternion.Euler(_pitch, _yaw, 0.0f);
     }
+    public void DisableCamera()
+    {
+        _controls.Disable();
+    }
+    public void EnableCamera()
+    {
+        _controls.Enable();
+    }
 }
