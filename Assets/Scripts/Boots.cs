@@ -10,10 +10,12 @@ public class Boots : MonoBehaviour
     }
     public void LevelUp()
     {
-        if(GameManager.gm.BootsLevel < bootsData.levels.Count)
+        if(GameManager.gm.BootsLevel < bootsData.levels.Count && GameManager.gm.Ombrium >= GameManager.gm.BootsNextLvlCost)
         {
             GameManager.gm.BootsLevel++;
             SpeedBuff = bootsData.levels[GameManager.gm.BootsLevel - 1];
+            GameManager.gm.Ombrium -= GameManager.gm.BootsNextLvlCost;
+            GameManager.gm.UpdateCosts();
         }
     }
 }
