@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour, IInteractable
 {
-    public void Interact()
+    public virtual void Interact()
     {
         BaseManager.bm.levelUpBuilding(transform);
     }

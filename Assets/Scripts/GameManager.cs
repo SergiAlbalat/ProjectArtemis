@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public SOEnemies capturedEnemy;
     public int WeaponLevel = 1;
     public int BootsLevel = 1;
+    public int Ombrium = 0;
     private void Awake()
     {
         if (gm != null && gm != this)

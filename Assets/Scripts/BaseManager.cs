@@ -105,4 +105,11 @@ public class BaseManager : MonoBehaviour
 
         enemiesInBase.StoreEnemy(harvester.location, GameManager.gm.capturedEnemy.prefab);
     }
+    public void HarvestEnemy(Vector3 harvesterPosition)
+    {
+        enemiesInBase.storedEnemies.Remove(enemiesInBase.storedEnemies.FirstOrDefault(n => 
+            n.harvesterCoords.x == harvesterPosition.x && n.harvesterCoords.y == harvesterPosition.y && n.harvesterCoords.z == harvesterPosition.z)
+        );
+        GameManager.gm.Ombrium += 6;
+    }
 }

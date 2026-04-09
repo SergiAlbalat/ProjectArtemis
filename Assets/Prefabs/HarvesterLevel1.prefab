@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3907555114111826184}
   - component: {fileID: 1029126354201095530}
   - component: {fileID: 1629301061750519372}
-  - component: {fileID: 6451849956979153206}
   - component: {fileID: 845866014294345198}
   m_Layer: 9
   m_Name: HarvesterLevel1
@@ -115,18 +114,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6451849956979153206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6812648439844423373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7fe9d07c497b249afd5dff0d809b3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuildManager
 --- !u!114 &845866014294345198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4051b07951446f24088716f436720efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Harvester
-  containedEnemy: {fileID: 0}
   enemySpawn: {fileID: 3178272139435918858}
 --- !u!1 &7651476951130156822
 GameObject:
