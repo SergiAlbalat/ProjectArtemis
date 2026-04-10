@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5705630665270500805}
   - component: {fileID: 624076618088587553}
   m_Layer: 7
-  m_Name: EasyEnemy
+  m_Name: HardEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   player: {fileID: 3532274993341923069, guid: 2279b123babb2dd46a8b8c98ab8934a2, type: 3}
   captured: 0
   projectile: {fileID: 6340902137537818833, guid: ffedc662457ced14b8db2cf506af8cdb, type: 3}
-  enemyData: {fileID: 11400000, guid: 9eebcdad924bc634fbb7a5a8b9fa5cec, type: 2}
+  enemyData: {fileID: 11400000, guid: e0ba3cfbd1aa5c14485a04286044890d, type: 2}
   rootNode: {fileID: 11400000, guid: ee69c00e0700d7f4492843747752bc86, type: 2}
   stuned: 0
 --- !u!65 &5705630665270500805

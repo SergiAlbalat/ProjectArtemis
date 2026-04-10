@@ -1,12 +1,22 @@
 using UnityEngine;
 
-public class ExpeditionStation : MonoBehaviour
+public class ExpeditionStation : MonoBehaviour, IInteractable
 {
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private Canvas expeditionMenu;
+    [SerializeField] private Player player;
+    [SerializeField] private CameraBehaviour cameraBehaviour;
+    public void Interact()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            GameManager.gm.LoadBattle();
-        }
+        expeditionMenu.gameObject.SetActive(true);
+        player.DisableMovement();
+        Cursor.lockState = CursorLockMode.None;
+        cameraBehaviour.DisableCamera();
+    }
+    public void CloseMenu()
+    {
+        expeditionMenu.gameObject.SetActive(false);
+        player.EnableMovement();
+        Cursor.lockState = CursorLockMode.Locked;
+        cameraBehaviour.EnableCamera();
     }
 }

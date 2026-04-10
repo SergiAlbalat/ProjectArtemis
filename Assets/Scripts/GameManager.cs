@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,9 @@ public class GameManager : MonoBehaviour
     public int Ombrium = 0;
     public int WeaponNextLvlCost;
     public int BootsNextLvlCost;
+    public int Difficulty = 1;
     private float _lvlScaling = 1.5f;
+    [SerializeField] private List<SOEnemies> enemyTypes;
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -53,10 +56,18 @@ public class GameManager : MonoBehaviour
         if (scene == SceneManager.GetSceneByName("Base"))
         {
             bm.LoadBase();
+        } if (scene == SceneManager.GetSceneByName("Battle"))
+        {
+            Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
         }
     }
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    public void SetDifficulty(int difficulty)
+    {
+        Difficulty = difficulty;
+        LoadBattle();
     }
 }
