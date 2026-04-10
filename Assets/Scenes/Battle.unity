@@ -660,6 +660,7 @@ GameObject:
   - component: {fileID: 1229682428}
   - component: {fileID: 1229682427}
   - component: {fileID: 1229682430}
+  - component: {fileID: 1229682431}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -797,8 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb380be86ebf64d83f3790f0f5f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBehaviour
-  bootsData: {fileID: 11400000, guid: 13e5fa6226066ed4eb8c6c8e0e2925d4, type: 2}
-  velocity: 20
+  velocity: 15
 --- !u!143 &1229682429
 CharacterController:
   m_ObjectHideFlags: 0
@@ -837,6 +837,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   weaponsData: {fileID: 11400000, guid: b9138bfd73100734fbcfd27519784ffa, type: 2}
+--- !u!114 &1229682431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229682422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3099140a0064c4293427c1994055c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boots
+  bootsData: {fileID: 11400000, guid: 13e5fa6226066ed4eb8c6c8e0e2925d4, type: 2}
+  SpeedBuff: 0
 --- !u!1 &1236546184
 GameObject:
   m_ObjectHideFlags: 0

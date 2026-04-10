@@ -1,10 +1,19 @@
 using UnityEngine;
 
-public class Harvester : MonoBehaviour
+public class Harvester : BuildManager
 {
     [SerializeField] private Transform enemySpawn;
+    private GameObject containedEnemy;
     public void InstanciateEnemies(GameObject enemy)
     {
-        Instantiate(enemy, enemySpawn.position, Quaternion.identity);
+        containedEnemy = Instantiate(enemy, enemySpawn.position, Quaternion.identity);
+    }
+    public override void Interact()
+    {
+        if(containedEnemy != null)
+        {
+            Destroy(containedEnemy);
+            BaseManager.bm.HarvestEnemy(transform.position);
+        }
     }
 }

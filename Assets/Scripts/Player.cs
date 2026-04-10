@@ -93,4 +93,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     {
         _mB.AjustVelocity(debuff);
     }
+    public void DisableMovement()
+    {
+        _inputActions.Disable();
+    }
+    public void EnableMovement()
+    {
+        _inputActions.Enable();
+    }
 }

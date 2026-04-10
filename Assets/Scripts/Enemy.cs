@@ -24,6 +24,11 @@ public class Enemy : MonoBehaviour, IStun
     public SOEnemies enemyData;
     [SerializeField] private SONode rootNode;
     public bool stuned = false;
+    private void Awake()
+    {
+        _currentNode = rootNode.Children.Last();
+        ChangeNode();
+    }
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -40,8 +45,6 @@ public class Enemy : MonoBehaviour, IStun
         {
             PlayerVelocityDebuff();
         }
-        _currentNode = rootNode.Children.Last();
-        ChangeNode();
     }
     private void OnTriggerEnter(Collider other)
     {
