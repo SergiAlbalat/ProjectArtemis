@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Scripting;
@@ -8,7 +9,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
 {
     [SerializeField] private float interactRange = 2f;
     [SerializeField] private LayerMask interactableLayer;
-    [SerializeField] private Camera playerCamera;
+    private Camera playerCamera;
     private InputSystem_Actions _inputActions;
     private MoveBehaviour _mB;
     private Weapon _currentWeapon;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         _inputActions.Player.SetCallbacks(this);
         _currentWeapon = GetComponent<Weapon>();
         Cursor.lockState = CursorLockMode.Locked;
+        playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     private void OnEnable()
     {

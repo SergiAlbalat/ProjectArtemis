@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int Difficulty = 1;
     private float _lvlScaling = 1.5f;
     [SerializeField] private List<SOEnemies> enemyTypes;
+    [SerializeField] private Player player;
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -56,9 +57,12 @@ public class GameManager : MonoBehaviour
         if (scene == SceneManager.GetSceneByName("Base"))
         {
             bm.LoadBase();
+            Instantiate(player, new Vector3(0, 1, 0), Quaternion.identity);
         } if (scene == SceneManager.GetSceneByName("Battle"))
         {
-            Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
+            Player battlePlayer = Instantiate(player, new Vector3(0, 1, -30), Quaternion.identity);
+            enemy.GetComponent<Enemy>().Player = battlePlayer;
         }
     }
     private void OnDestroy()

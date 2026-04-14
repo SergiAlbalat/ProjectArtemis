@@ -3,8 +3,13 @@ using UnityEngine;
 public class ExpeditionStation : MonoBehaviour, IInteractable
 {
     [SerializeField] private Canvas expeditionMenu;
-    [SerializeField] private Player player;
-    [SerializeField] private CameraBehaviour cameraBehaviour;
+    private Player player;
+    private CameraBehaviour cameraBehaviour;
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        cameraBehaviour = GameObject.FindGameObjectWithTag("LookPoint").GetComponent<CameraBehaviour>();
+    }
     public void Interact()
     {
         expeditionMenu.gameObject.SetActive(true);
