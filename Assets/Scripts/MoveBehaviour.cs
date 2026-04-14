@@ -7,7 +7,7 @@ public class MoveBehaviour : MonoBehaviour
     private Vector3 movement;
     private Boots _boots;
     [SerializeField] private float velocity = 10;
-    private void Start()
+    private void Awake()
     {
         _cC = GetComponent<CharacterController>();
         _boots = GetComponent<Boots>();

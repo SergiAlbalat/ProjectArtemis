@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour, IStun
 {
     private NavMeshAgent _agent;
-    [SerializeField] private Player player;
+    public Player Player;
     private float _currentHP;
     private float _speedDebuff;
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour, IStun
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.GetComponent<Player>();
+            //player = other.GetComponent<Player>();
         }
     }
     private void OnTriggerStay(Collider other)
@@ -78,11 +78,11 @@ public class Enemy : MonoBehaviour, IStun
     }
     private void ThrowProjectile()
     {
-        if (captured || !run.GetCheck() || player == null)
+        if (captured || !run.GetCheck() || Player == null)
             return;
-        if(Physics.Linecast(transform.position, player.transform.position) && !stuned)
+        if(Physics.Linecast(transform.position, Player.transform.position) && !stuned)
         {
-            Vector3 direction = player.transform.position - transform.position;
+            Vector3 direction = Player.transform.position - transform.position;
             SpawnProjectile(direction);
         }
     }
@@ -161,7 +161,7 @@ public class Enemy : MonoBehaviour, IStun
     {
         if (!stuned)
         {
-            Vector3 direction = player.transform.position - transform.position;
+            Vector3 direction = Player.transform.position - transform.position;
             _agent.SetDestination(transform.position - direction);
         }
     }
@@ -176,6 +176,6 @@ public class Enemy : MonoBehaviour, IStun
     }
     private void PlayerVelocityDebuff()
     {
-        player.AjustMovement(_speedDebuff);
+       Player.AjustMovement(_speedDebuff);
     }
 }
