@@ -107,9 +107,10 @@ public class BaseManager : MonoBehaviour
     }
     public void HarvestEnemy(Vector3 harvesterPosition)
     {
-        enemiesInBase.storedEnemies.Remove(enemiesInBase.storedEnemies.FirstOrDefault(n => 
-            n.harvesterCoords.x == harvesterPosition.x && n.harvesterCoords.y == harvesterPosition.y && n.harvesterCoords.z == harvesterPosition.z)
+        var enemy = enemiesInBase.storedEnemies.FirstOrDefault(n =>
+            n.harvesterCoords.x == harvesterPosition.x && n.harvesterCoords.y == harvesterPosition.y && n.harvesterCoords.z == harvesterPosition.z
         );
-        GameManager.gm.Ombrium += 6;
+        enemiesInBase.storedEnemies.Remove(enemy);
+        GameManager.gm.Ombrium += enemy.reward;
     }
 }

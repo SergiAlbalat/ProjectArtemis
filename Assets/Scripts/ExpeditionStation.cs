@@ -24,4 +24,16 @@ public class ExpeditionStation : MonoBehaviour, IInteractable
         Cursor.lockState = CursorLockMode.Locked;
         cameraBehaviour.EnableCamera();
     }
+    public void EasyDifficulty()
+    {
+        GameManager.gm.SetDifficulty(1);
+    }
+    public void MediumDifficulty()
+    {
+        GameManager.gm.SetDifficulty(2);
+    }
+    public void HardDifficulty()
+    {
+        GameManager.gm.SetDifficulty(3);
+    }
 }

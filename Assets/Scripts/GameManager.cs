@@ -74,4 +74,12 @@ public class GameManager : MonoBehaviour
         Difficulty = difficulty;
         LoadBattle();
     }
+    public void LvlUpBoots()
+    {
+        player.GetComponent<MoveBehaviour>().GetComponent<Boots>().LevelUp();
+    }
+    public void LvlUpWeapon()
+    {
+        player.GetComponent<Weapon>().LevelUp();
+    }
 }

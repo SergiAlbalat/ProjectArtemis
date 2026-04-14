@@ -1124,10 +1124,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1390455858}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetDifficulty
-        m_Mode: 3
+      - m_Target: {fileID: 449634371}
+        m_TargetAssemblyTypeName: ExpeditionStation, Assembly-CSharp
+        m_MethodName: MediumDifficulty
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3878,8 +3878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpeditionStation
   expeditionMenu: {fileID: 808008020}
-  player: {fileID: 0}
-  cameraBehaviour: {fileID: 0}
 --- !u!65 &449634372
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6361,18 +6359,26 @@ PrefabInstance:
     - target: {fileID: 4324954727885429536, guid: 8708fe7275987cf4eb7e6a18205bc9ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1554413881}
     - target: {fileID: 4324954727885429536, guid: 8708fe7275987cf4eb7e6a18205bc9ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LevelUp
+      value: LvlUpBoots
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324954727885429536, guid: 8708fe7275987cf4eb7e6a18205bc9ac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeStation, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5119663778290349636, guid: 8708fe7275987cf4eb7e6a18205bc9ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1554413881}
     - target: {fileID: 5119663778290349636, guid: 8708fe7275987cf4eb7e6a18205bc9ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LevelUp
+      value: LvlUpWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119663778290349636, guid: 8708fe7275987cf4eb7e6a18205bc9ac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeStation, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8791312912930934804, guid: 8708fe7275987cf4eb7e6a18205bc9ac, type: 3}
       propertyPath: m_Name
@@ -9256,10 +9262,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1390455858}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetDifficulty
-        m_Mode: 3
+      - m_Target: {fileID: 449634371}
+        m_TargetAssemblyTypeName: ExpeditionStation, Assembly-CSharp
+        m_MethodName: EasyDifficulty
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13448,8 +13454,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeStation
   upgradeUI: {fileID: 1958038247}
-  player: {fileID: 0}
-  cameraBehaviour: {fileID: 0}
 --- !u!65 &1554413882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14596,10 +14600,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1390455858}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetDifficulty
-        m_Mode: 3
+      - m_Target: {fileID: 449634371}
+        m_TargetAssemblyTypeName: ExpeditionStation, Assembly-CSharp
+        m_MethodName: HardDifficulty
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

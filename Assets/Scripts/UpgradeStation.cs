@@ -24,4 +24,12 @@ public class UpgradeStation : MonoBehaviour, IInteractable
         Cursor.lockState= CursorLockMode.Locked;
         cameraBehaviour.EnableCamera();
     }
+    public void LvlUpWeapon()
+    {
+        GameManager.gm.LvlUpWeapon();
+    }
+    public void LvlUpBoots()
+    {
+        GameManager.gm.LvlUpBoots();
+    }
 }
