@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, IStun
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
     public bool captured = false;
     private float _patrolRange;
+    [SerializeField] private SphereCollider patrolSphere;
     private SONode _currentNode;
     public Condition run;
     public Condition die;
@@ -35,7 +36,7 @@ public class Enemy : MonoBehaviour, IStun
         InvokeRepeating("ThrowProjectile", 2, 2);
         _currentHP = enemyData.MaxHP;
         _speedDebuff = enemyData.SpeedDebuff;
-        _patrolRange = GetComponent<SphereCollider>().radius;
+        _patrolRange = patrolSphere.radius;
         run = new Condition("Run");
         die = new Condition("Die");
         if (SceneManager.GetActiveScene().name == "Base")

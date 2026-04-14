@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadBattle()
     {
-        SceneManager.LoadScene("Battle");
+        SceneManager.LoadScene("Battle1");
     }
     public void CaptureEnemy(SOEnemies enemy)
     {
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         {
             bm.LoadBase();
             Instantiate(player, new Vector3(0, 1, 0), Quaternion.identity);
-        } if (scene == SceneManager.GetSceneByName("Battle"))
+        } if (scene == SceneManager.GetSceneByName("Battle1"))
         {
             GameObject enemy = Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
             Player battlePlayer = Instantiate(player, new Vector3(0, 1, -30), Quaternion.identity);
