@@ -163,7 +163,20 @@ public class Enemy : MonoBehaviour, IStun
         if (!stuned)
         {
             Vector3 direction = Player.transform.position - transform.position;
-            _agent.SetDestination(transform.position - direction);
+            for(int i = 0; i < 100;i++)
+            {
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(direction, out hit, 1, NavMesh.AllAreas))
+                {
+                    _agent.SetDestination(transform.position - direction);
+                    return;
+                }
+                else
+                {
+                    direction *= 0.1f;
+                }
+            }
+            
         }
     }
     public void OnHurt(float damage)
