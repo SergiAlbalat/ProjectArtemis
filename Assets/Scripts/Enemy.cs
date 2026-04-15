@@ -176,7 +176,6 @@ public class Enemy : MonoBehaviour, IStun
                     direction *= 0.1f;
                 }
             }
-            
         }
     }
     public void OnHurt(float damage)

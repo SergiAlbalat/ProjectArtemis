@@ -5,5 +5,6 @@ public class SOEnemies : ScriptableObject
 {
     public float MaxHP;
     public float SpeedDebuff;
+    public float Timer;
     public GameObject prefab;
 }
