@@ -111,6 +111,6 @@ public class BaseManager : MonoBehaviour
             n.harvesterCoords.x == harvesterPosition.x && n.harvesterCoords.y == harvesterPosition.y && n.harvesterCoords.z == harvesterPosition.z
         );
         enemiesInBase.storedEnemies.Remove(enemy);
-        GameManager.gm.Ombrium += enemy.reward;
+        GameManager.gm.Sombrium += enemy.reward;
     }
 }

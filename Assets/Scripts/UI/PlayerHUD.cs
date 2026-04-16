@@ -6,6 +6,6 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ombriumCounter;
     private void Update()
     {
-        ombriumCounter.text = GameManager.gm.Ombrium.ToString();
+        ombriumCounter.text = GameManager.gm.Sombrium.ToString();
     }
 }

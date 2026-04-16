@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
     public SOEnemies capturedEnemy;
     public int WeaponLevel = 1;
     public int BootsLevel = 1;
-    public int Ombrium = 0;
+    public int StunnerLevel = 1;
+    public int Sombrium = 0;
     public int WeaponNextLvlCost;
     public int BootsNextLvlCost;
+    public int StunnerNextLvlCost;
     public int Difficulty = 1;
     private float _lvlScaling = 1.5f;
     [SerializeField] private List<SOEnemies> enemyTypes;
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         WeaponNextLvlCost = (WeaponLevel * _lvlScaling).ConvertTo<int>();
         BootsNextLvlCost = (BootsLevel * _lvlScaling).ConvertTo<int>();
+        StunnerNextLvlCost = (StunnerLevel * _lvlScaling).ConvertTo<int>();
     }
     private void ShowUI()
     {
@@ -62,7 +65,7 @@ public class GameManager : MonoBehaviour
         {
             GameObject enemy = Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
             Player battlePlayer = Instantiate(player, new Vector3(0, 1, -30), Quaternion.identity);
-            enemy.GetComponent<Enemy>().Player = battlePlayer;
+            //enemy.GetComponent<Enemy>().Player = battlePlayer;
         }
     }
     private void OnDestroy()
@@ -73,13 +76,5 @@ public class GameManager : MonoBehaviour
     {
         Difficulty = difficulty;
         LoadBattle();
-    }
-    public void LvlUpBoots()
-    {
-        player.GetComponent<MoveBehaviour>().GetComponent<Boots>().LevelUp();
-    }
-    public void LvlUpWeapon()
-    {
-        player.GetComponent<Weapon>().LevelUp();
     }
 }

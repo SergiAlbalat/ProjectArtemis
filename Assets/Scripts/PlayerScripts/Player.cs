@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Scripting;
 [RequireComponent(typeof(MoveBehaviour))]
 
 public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
@@ -17,6 +15,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     public bool inRange = false;
     public Enemy nearEnemy = null;
     public bool stuned = false;
+    public Stunner Stunner;
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
@@ -25,6 +24,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         _currentWeapon = GetComponent<Weapon>();
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        Stunner = GetComponent<Stunner>();
     }
     private void OnEnable()
     {

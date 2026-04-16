@@ -15,4 +15,5 @@ MonoBehaviour:
   MaxHP: 20
   SpeedDebuff: 0.8
   Timer: 60
+  StunResistance: 2
   prefab: {fileID: 944156248257655990, guid: f369277adb53b6f4c901a2fa66f1f48c, type: 3}

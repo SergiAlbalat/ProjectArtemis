@@ -1,5 +1,3 @@
-using System.ComponentModel;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -18,11 +16,11 @@ public class Weapon : MonoBehaviour
     }
     public void LevelUp()
     {
-        if(GameManager.gm.WeaponLevel < weaponsData.levels.Count && GameManager.gm.Ombrium >= GameManager.gm.WeaponNextLvlCost)
+        if(GameManager.gm.WeaponLevel < weaponsData.levels.Count && GameManager.gm.Sombrium >= GameManager.gm.WeaponNextLvlCost)
         {
             GameManager.gm.WeaponLevel++;
             _damage = weaponsData.levels[GameManager.gm.WeaponLevel - 1];
-            GameManager.gm.Ombrium -= GameManager.gm.WeaponNextLvlCost;
+            GameManager.gm.Sombrium -= GameManager.gm.WeaponNextLvlCost;
             GameManager.gm.UpdateCosts();
         }
     }

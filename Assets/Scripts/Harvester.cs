@@ -7,6 +7,7 @@ public class Harvester : BuildManager
     public void InstanciateEnemies(GameObject enemy)
     {
         containedEnemy = Instantiate(enemy, enemySpawn.position, Quaternion.identity);
+        containedEnemy.GetComponent<Enemy>().captured = true;
     }
     public override void Interact()
     {

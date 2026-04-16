@@ -26,10 +26,14 @@ public class UpgradeStation : MonoBehaviour, IInteractable
     }
     public void LvlUpWeapon()
     {
-        GameManager.gm.LvlUpWeapon();
+        player.GetComponent<Weapon>().LevelUp();
     }
     public void LvlUpBoots()
     {
-        GameManager.gm.LvlUpBoots();
+        player.GetComponent<Boots>().LevelUp();
+    }
+    public void LvlUpStunner()
+    {
+        player.Stunner.LevelUp();
     }
 }
