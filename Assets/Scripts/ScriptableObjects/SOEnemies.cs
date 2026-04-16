@@ -7,5 +7,6 @@ public class SOEnemies : ScriptableObject
     public float SpeedDebuff;
     public float Timer;
     public float StunResistance;
+    public float StunForce;
     public GameObject prefab;
 }

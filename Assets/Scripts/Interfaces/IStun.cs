@@ -4,5 +4,5 @@ using UnityEngine;
 public interface IStun
 {
     void StartStun();
-    IEnumerator Stun();
+    IEnumerator Stun(float time);
 }

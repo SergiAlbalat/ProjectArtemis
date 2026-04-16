@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     private FloatBehaviour _fB;
     public Enemy enemy;
+    public float StunForce;
     private void Awake()
     {
         _fB = GetComponent<FloatBehaviour>();
@@ -31,6 +32,7 @@ public class Projectile : MonoBehaviour
             Player player = hit.gameObject.GetComponent<Player>();
             if (!player.stuned)
             {
+                player.StunTime = StunForce;
                 player.StartStun();
             }
         }

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     public Enemy nearEnemy = null;
     public bool stuned = false;
     public Stunner Stunner;
+    public float StunTime = 5;
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
@@ -56,13 +57,13 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     }
     public void StartStun()
     {
-        StartCoroutine(Stun());
+        StartCoroutine(Stun(StunTime));
     }
-    public IEnumerator Stun()
+    public IEnumerator Stun(float time)
     {
         stuned = true;
         _inputActions.Disable();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(time);
         stuned = false;
         _inputActions.Enable();
     }

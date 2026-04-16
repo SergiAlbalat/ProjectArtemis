@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour, IStun
     private float _currentHP;
     private float _speedDebuff;
     private float _stunTime;
+    private float _stunForce;
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
     public bool captured = false;
     private float _patrolRange;
@@ -41,6 +42,7 @@ public class Enemy : MonoBehaviour, IStun
         _currentHP = enemyData.MaxHP;
         _speedDebuff = enemyData.SpeedDebuff;
         _stunTime = _player.Stunner.GetStunForce() - enemyData.StunResistance;
+        _stunForce = enemyData.StunForce;
         if(_stunTime < 0)
             _stunTime = 0;
         _patrolRange = patrolSphere.radius;
@@ -98,17 +100,18 @@ public class Enemy : MonoBehaviour, IStun
         {
             GameObject proj = Instantiate(projectile, transform.position, Quaternion.LookRotation(direction));
             proj.GetComponent<Projectile>().enemy = this;
+            proj.GetComponent<Projectile>().StunForce = _stunForce;
         }
     }
     public void StartStun()
     {
-        StartCoroutine(Stun());
+        StartCoroutine(Stun(_stunTime));
     }
-    public IEnumerator Stun()
+    public IEnumerator Stun(float time)
     {
         stuned = true;
         _agent.SetDestination(transform.position);
-        yield return new WaitForSeconds(_stunTime);
+        yield return new WaitForSeconds(time);
         stuned = false;
     }
     public void ChangeNode()
