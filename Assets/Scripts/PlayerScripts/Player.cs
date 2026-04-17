@@ -16,6 +16,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     public Enemy nearEnemy = null;
     public bool stuned = false;
     public Stunner Stunner;
+    public Protector Protector;
     public float StunTime = 5;
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         _inputActions = new InputSystem_Actions();
         _inputActions.Player.SetCallbacks(this);
         _currentWeapon = GetComponent<Weapon>();
+        Protector = GetComponent<Protector>();
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Stunner = GetComponent<Stunner>();
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     }
     public void StartStun()
     {
-        StartCoroutine(Stun(StunTime));
+        StartCoroutine(Stun(StunTime - Protector.StunResistance));
     }
     public IEnumerator Stun(float time)
     {

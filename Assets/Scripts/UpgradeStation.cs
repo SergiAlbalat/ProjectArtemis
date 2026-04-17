@@ -36,4 +36,8 @@ public class UpgradeStation : MonoBehaviour, IInteractable
     {
         player.Stunner.LevelUp();
     }
+    public void LvlUpProtector()
+    {
+        player.Protector.LevelUp();
+    }
 }

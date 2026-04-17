@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
     public int WeaponLevel = 1;
     public int BootsLevel = 1;
     public int StunnerLevel = 1;
+    public int ProtectorLevel = 1;
     public int Sombrium = 0;
     public int WeaponNextLvlCost;
     public int BootsNextLvlCost;
     public int StunnerNextLvlCost;
+    public int ProtectorNextLvlCost;
     public int Difficulty = 1;
     private float _lvlScaling = 1.5f;
     [SerializeField] private List<SOEnemies> enemyTypes;
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
         WeaponNextLvlCost = (WeaponLevel * _lvlScaling).ConvertTo<int>();
         BootsNextLvlCost = (BootsLevel * _lvlScaling).ConvertTo<int>();
         StunnerNextLvlCost = (StunnerLevel * _lvlScaling).ConvertTo<int>();
+        ProtectorNextLvlCost = (ProtectorLevel * _lvlScaling).ConvertTo<int>();
     }
     private void ShowUI()
     {
