@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -60,16 +61,42 @@ public class GameManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene == SceneManager.GetSceneByName("Base"))
+        if (scene.name == "Base")
         {
             bm.LoadBase();
             Instantiate(player, new Vector3(0, 1, 0), Quaternion.identity);
-        } if (scene == SceneManager.GetSceneByName("Battle1"))
-        {
-            GameObject enemy = Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
-            Player battlePlayer = Instantiate(player, new Vector3(0, 1, -30), Quaternion.identity);
-            //enemy.GetComponent<Enemy>().Player = battlePlayer;
         }
+
+        if (scene.name == "Battle1")
+        {
+            Instantiate(player, new Vector3(0, 1, -30), Quaternion.identity);
+            Vector3 spawnPoint;
+            if (TryGetNavMeshSpawnPoint(Vector3.zero, 100f, out spawnPoint))
+            {
+                Instantiate(enemyTypes[Difficulty - 1].prefab, spawnPoint, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
+            }
+        }
+    }
+
+    private bool TryGetNavMeshSpawnPoint(Vector3 center, float radius, out Vector3 result)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPoint = center + Random.insideUnitSphere * radius;
+            randomPoint.y = center.y;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint, out hit, 3f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+                return true;
+            }
+        }
+        result = Vector3.zero;
+        return false;
     }
     private void OnDestroy()
     {
