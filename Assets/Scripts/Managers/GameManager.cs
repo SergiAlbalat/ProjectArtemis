@@ -69,16 +69,18 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "Battle1")
         {
-            Instantiate(player, new Vector3(0, 1, -30), Quaternion.identity);
+            Player battlePlayer = Instantiate(player, new Vector3(0, 1, -30), Quaternion.identity);
             Vector3 spawnPoint;
+            GameObject enemy;
             if (TryGetNavMeshSpawnPoint(Vector3.zero, 100f, out spawnPoint))
             {
-                Instantiate(enemyTypes[Difficulty - 1].prefab, spawnPoint, Quaternion.identity);
+                enemy = Instantiate(enemyTypes[Difficulty - 1].prefab, spawnPoint, Quaternion.identity);
             }
             else
             {
-                Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
+                enemy = Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
             }
+            battlePlayer.nearEnemy = enemy.GetComponent<Enemy>();
         }
     }
 

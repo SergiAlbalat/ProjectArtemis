@@ -8,7 +8,6 @@ public class PlayerRange : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("hello");
-            player.nearEnemy = other.GetComponent<Enemy>();
             player.inRange = true;
         }
     }

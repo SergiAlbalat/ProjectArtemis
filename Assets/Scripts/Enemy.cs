@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour, IStun
 {
     private NavMeshAgent _agent;
+    [SerializeField] private List<GameObject> models;
     private Player _player;
     private float _currentHP;
     private float _speedDebuff;
@@ -29,6 +30,10 @@ public class Enemy : MonoBehaviour, IStun
     public bool stuned = false;
     private void Awake()
     {
+        if(models.Count > 0)
+        {
+            models[Random.Range(0, models.Count)].gameObject.SetActive(true);
+        }
         _currentNode = rootNode.Children.Last();
         run = new Condition("Run");
         die = new Condition("Die");
