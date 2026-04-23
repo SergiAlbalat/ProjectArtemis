@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - Enemy
   - LookPoint
+  - PlayerModel
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Enemy
   - Projectile
   - Interactable
-  - 
+  - PlayerModel
   - 
   - 
   - 

@@ -5,7 +5,8 @@ public class PlayerRange : MonoBehaviour
     [SerializeField] private Player player;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        Debug.Log(other.transform.name);
+        if (other.CompareTag("Enemy"))
         {
             Debug.Log("hello");
             player.inRange = true;
@@ -13,7 +14,7 @@ public class PlayerRange : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             Debug.Log("bye");
             player.inRange = false;
