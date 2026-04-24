@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3380851420507611263}
   - component: {fileID: 5705630665270500805}
   - component: {fileID: 624076618088587553}
+  - component: {fileID: -2537332865379842982}
   m_Layer: 7
   m_Name: MediumEnemy
   m_TagString: Enemy
@@ -101,6 +102,7 @@ MonoBehaviour:
   patrolSphere: {fileID: 7854268430539736958}
   projectile: {fileID: 6340902137537818833, guid: ffedc662457ced14b8db2cf506af8cdb, type: 3}
   enemyData: {fileID: 11400000, guid: 55b3e21de159af04a85cc3b63c46aaa1, type: 2}
+  enemyModel: 0
   rootNode: {fileID: 11400000, guid: ee69c00e0700d7f4492843747752bc86, type: 2}
   stuned: 0
 --- !u!65 &5705630665270500805
@@ -149,6 +151,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &-2537332865379842982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944156248257655990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d967b1dca2d5d440858d419dc0c908c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationBehaviour
+  animator: {fileID: 0}
 --- !u!1 &5969366388689805679
 GameObject:
   m_ObjectHideFlags: 0

@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d967b1dca2d5d440858d419dc0c908c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationBehaviour
-  _animator: {fileID: 3532724205642118487}
+  animator: {fileID: 3532724205642118487}
 --- !u!1 &6840289253887549563
 GameObject:
   m_ObjectHideFlags: 0

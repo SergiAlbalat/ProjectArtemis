@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, IStun
     private float _speedDebuff;
     private float _stunTime;
     private float _stunForce;
+    private AnimationBehaviour _aB;
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
     public bool captured = false;
     private float _patrolRange;
@@ -23,13 +24,17 @@ public class Enemy : MonoBehaviour, IStun
     public Condition die;
     [SerializeField] private GameObject projectile;
     public SOEnemies enemyData;
+    public int enemyModel = 0;
     [SerializeField] private SONode rootNode;
     public bool stuned = false;
     private void Awake()
     {
-        if(models.Count > 0)
+
+        _aB = GetComponent<AnimationBehaviour>();
+        if (models.Count > 0)
         {
-            models[Random.Range(0, models.Count)].gameObject.SetActive(true);
+            enemyModel = Random.Range(0, models.Count);
+            models[enemyModel].SetActive(true);
         }
         _currentNode = rootNode.Children.Last();
         run = new Condition("Run");
@@ -39,6 +44,7 @@ public class Enemy : MonoBehaviour, IStun
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _aB.animator = models[enemyModel].GetComponent<Animator>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         InvokeRepeating("ThrowProjectile", 2, 2);
         _currentHP = enemyData.MaxHP;
@@ -51,10 +57,12 @@ public class Enemy : MonoBehaviour, IStun
         if (SceneManager.GetActiveScene().name == "Base")
         {
             captured = true;
-        }else if(SceneManager.GetActiveScene().name == "Battle")
+        }
+        else if(SceneManager.GetActiveScene().name == "Battle")
         {
             PlayerVelocityDebuff();
         }
+        _aB.EnemyCaptured(captured);
     }
     private void OnTriggerStay(Collider other)
     {
@@ -193,5 +201,12 @@ public class Enemy : MonoBehaviour, IStun
     private void PlayerVelocityDebuff()
     {
        _player.AjustMovement(_speedDebuff);
+    }
+    public void UpdateModel(int model)
+    {
+        models[enemyModel].SetActive(false);
+        models[model].SetActive(true);
+        enemyModel = model;
+        _aB.animator = models[enemyModel].GetComponent<Animator>();
     }
 }

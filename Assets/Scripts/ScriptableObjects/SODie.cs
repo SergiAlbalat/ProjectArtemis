@@ -7,7 +7,7 @@ public class SODie : SONode
     public override bool EndCondition(Enemy enemy) => false;
     public override void OnStart(Enemy enemy)
     {
-        GameManager.gm.CaptureEnemy(enemy.enemyData);
+        GameManager.gm.CaptureEnemy(enemy.enemyData, enemy.enemyModel);
     }
     public override void OnUpdate(Enemy enemy) { }
     public override void OnEnd(Enemy enemy) { }

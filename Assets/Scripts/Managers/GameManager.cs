@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     [SerializeField] private BaseManager bm;
     public SOEnemies capturedEnemy;
+    public int capturedEnemyModel;
     public int WeaponLevel = 1;
     public int BootsLevel = 1;
     public int StunnerLevel = 1;
@@ -42,9 +43,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Battle1");
     }
-    public void CaptureEnemy(SOEnemies enemy)
+    public void CaptureEnemy(SOEnemies enemy, int model)
     {
         capturedEnemy = enemy;
+        capturedEnemyModel = model;
         Debug.Log("Capturando");
         LoadBase();
     }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5705630665270500805}
   - component: {fileID: 624076618088587553}
   - component: {fileID: 2281979032353752381}
+  - component: {fileID: -2446183462023514841}
   m_Layer: 7
   m_Name: HardEnemy
   m_TagString: Enemy
@@ -80,6 +81,7 @@ MonoBehaviour:
   patrolSphere: {fileID: 2069997105993636486}
   projectile: {fileID: 6340902137537818833, guid: ffedc662457ced14b8db2cf506af8cdb, type: 3}
   enemyData: {fileID: 11400000, guid: e0ba3cfbd1aa5c14485a04286044890d, type: 2}
+  enemyModel: 0
   rootNode: {fileID: 11400000, guid: ee69c00e0700d7f4492843747752bc86, type: 2}
   stuned: 0
 --- !u!65 &5705630665270500805
@@ -149,6 +151,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 40
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2446183462023514841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944156248257655990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d967b1dca2d5d440858d419dc0c908c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationBehaviour
+  animator: {fileID: 0}
 --- !u!1 &5373257625810386121
 GameObject:
   m_ObjectHideFlags: 0

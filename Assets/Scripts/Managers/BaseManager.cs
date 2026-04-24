@@ -75,7 +75,7 @@ public class BaseManager : MonoBehaviour
         {
             Debug.Log(build.structure);
             var harvester = build.structure.GetComponent<Harvester>();
-            harvester.InstanciateEnemies(enemiesInBase.GetEnemyByBuild(build.location));
+            harvester.InstanciateEnemies(enemiesInBase.GetEnemyByBuild(build.location), enemiesInBase.GetEnemyModelByBuild(build.location));
         }
     }
     public void LoadBase()
@@ -103,7 +103,7 @@ public class BaseManager : MonoBehaviour
             return;
         }
 
-        enemiesInBase.StoreEnemy(harvester.location, GameManager.gm.capturedEnemy.prefab);
+        enemiesInBase.StoreEnemy(harvester.location, GameManager.gm.capturedEnemy.prefab, GameManager.gm.capturedEnemyModel);
     }
     public void HarvestEnemy(Vector3 harvesterPosition)
     {
