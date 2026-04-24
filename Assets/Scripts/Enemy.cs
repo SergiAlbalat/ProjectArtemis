@@ -121,7 +121,9 @@ public class Enemy : MonoBehaviour, IStun
     {
         stuned = true;
         _agent.SetDestination(transform.position);
+        _aB.EnemyStunned(true);
         yield return new WaitForSeconds(time);
+        _aB.EnemyStunned(false);
         stuned = false;
     }
     public void ChangeNode()

@@ -12,4 +12,8 @@ public class AnimationBehaviour : MonoBehaviour
     {
         animator.SetBool("Captured", option);
     }
+    public void EnemyStunned(bool option)
+    {
+        animator.SetBool("Stunned", option);
+    }
 }
