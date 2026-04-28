@@ -39,4 +39,12 @@ public class MoveBehaviour : MonoBehaviour
         velocity *= debuff;
         velocity += _boots.SpeedBuff;
     }
+    public void TryStun()
+    {
+        _aB.PlayerStun();
+    }
+    public void TryAttack()
+    {
+        _aB.PlayerAttack();
+    }
 }

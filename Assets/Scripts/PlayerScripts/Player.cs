@@ -72,11 +72,15 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
    
     public void OnStunAttack(InputAction.CallbackContext context)
     {
-        if(nearEnemy != null)
+        if (context.performed)
         {
-            if (inRange && !nearEnemy.stuned)
+            _mB.TryStun();
+            if (nearEnemy != null)
             {
-                nearEnemy.StartStun();
+                if (inRange && !nearEnemy.stuned)
+                {
+                    nearEnemy.StartStun();
+                }
             }
         }
     }
@@ -85,6 +89,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     {
         if (context.performed)
         {
+            _mB.TryAttack();
             if (nearEnemy != null)
             {
                 if (inRange)

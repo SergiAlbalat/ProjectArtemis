@@ -8,6 +8,14 @@ public class AnimationBehaviour : MonoBehaviour
         animator.SetFloat("Velocity", velocity);
         animator.SetBool("Battle", battleMode);
     }
+    public void PlayerStun()
+    {
+        animator.SetTrigger("Stun");
+    }
+    public void PlayerAttack()
+    {
+        animator.SetTrigger("Attack");
+    }
     public void EnemyCaptured(bool option)
     {
         animator.SetBool("Captured", option);
