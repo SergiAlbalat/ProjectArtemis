@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 112}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 79
+  controlID: 16618
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 80
+  controlID: 16619
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 81
+  controlID: 16620
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -248,12 +248,16 @@ MonoBehaviour:
     m_DynamicPanelBehavior: 0
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 918}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: -1402
+      - m_Data: 49170
       m_LastClickedID:
-        m_Data: -1402
+        m_Data: 0
       m_ExpandedIDs:
+      - m_Data: -63410
+      - m_Data: -60142
+      - m_Data: -57302
+      - m_Data: -48916
       - m_Data: -1320
       - m_Data: -1298
       - m_Data: 48096
@@ -835,9 +839,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 12.200596, y: -0.5553782, z: -38.39634}
+    m_Target: {x: 8.169012, y: -17.442822, z: -18.60216}
     speed: 2
-    m_Value: {x: 12.200596, y: -0.5553782, z: -38.39634}
+    m_Value: {x: 8.169012, y: -17.442822, z: -18.60216}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -883,13 +887,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.002427177, y: -0.9922573, z: 0.12266681, w: 0.019645734}
+    m_Target: {x: 0.054727595, y: 0.94117045, z: -0.27665803, w: 0.18617995}
     speed: 2
-    m_Value: {x: 0.0024271605, y: -0.99225056, z: 0.12266598, w: 0.0196456}
+    m_Value: {x: 0.054727595, y: 0.94117045, z: -0.27665803, w: 0.18617995}
   m_Size:
-    m_Target: 6.6976066
+    m_Target: 48.95185
     speed: 2
-    m_Value: 6.6976066
+    m_Value: 48.95185
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1150,7 +1154,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/BaseProps
+    - Assets/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1160,7 +1164,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Models/BaseProps
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GitHub\ProjectArtemis
   m_LockTracker:
@@ -1169,16 +1173,12 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 52030
+    - m_Data: 51878
     m_LastClickedID:
-      m_Data: 52030
+      m_Data: 51878
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 51752
-    - m_Data: 51876
-    - m_Data: 51934
-    - m_Data: 52030
-    - m_Data: 52138
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -1214,6 +1214,8 @@ MonoBehaviour:
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 51752
+    - m_Data: 1000000000
+    - m_Data: 2147483647
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1241,9 +1243,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: -1402
-    m_LastClickedInstanceID: -1402
-    m_HadKeyboardFocusLastEvent: 1
+    - m_Data: 49170
+    m_LastClickedInstanceID: 49170
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 48078
     - m_Data: 49156
@@ -1388,7 +1390,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 355
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678589ab2713d8747b40a43306b39631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  interactRange: 15
+  interactRange: 12
   interactableLayer:
     serializedVersion: 2
     m_Bits: 512
