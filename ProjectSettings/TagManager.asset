@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - LookPoint
   - PlayerModel
+  - CaptureMenu
+  - Timer
   layers:
   - Default
   - TransparentFX

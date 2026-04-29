@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour, IStun
     private float _speedDebuff;
     private float _stunTime;
     private float _stunForce;
+    private bool _colapsing = false;
+    private GameObject _captureMenu;
+    private TimerBehaviour _timer;
     private AnimationBehaviour _aB;
     public Stack<GameObject> _projectileStack  = new Stack<GameObject>();
     public bool captured = false;
@@ -51,6 +54,12 @@ public class Enemy : MonoBehaviour, IStun
         _speedDebuff = enemyData.SpeedDebuff;
         _stunTime = _player.Stunner.GetStunForce() - enemyData.StunResistance;
         _stunForce = enemyData.StunForce;
+        _captureMenu = GameObject.FindGameObjectWithTag("CaptureMenu");
+        if( _captureMenu != null )
+        {
+            _captureMenu.SetActive(false);
+        }
+        _timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerBehaviour>();
         if(_stunTime < 0)
             _stunTime = 0;
         _patrolRange = patrolSphere.radius;
@@ -89,7 +98,7 @@ public class Enemy : MonoBehaviour, IStun
     }
     private void ThrowProjectile()
     {
-        if (captured || !run.GetCheck() || _player == null)
+        if (captured || !run.GetCheck() || _player == null || _colapsing)
             return;
         if(Physics.Linecast(transform.position, _player.transform.position) && !stuned)
         {
@@ -200,6 +209,14 @@ public class Enemy : MonoBehaviour, IStun
             die.SetCheck(true);
         }
     }
+    public void TryKill()
+    {
+        if (_colapsing)
+        {
+            GameManager.gm.Sombrium += 2;
+            GameManager.gm.LoadBase();
+        }
+    }
     private void PlayerVelocityDebuff()
     {
        _player.AjustMovement(_speedDebuff);
@@ -210,5 +227,19 @@ public class Enemy : MonoBehaviour, IStun
         models[model].SetActive(true);
         enemyModel = model;
         _aB.animator = models[enemyModel].GetComponent<Animator>();
+    }
+    public void StartCapture()
+    {
+        _timer.StopTimer();
+        _aB.EnemyColapsing();
+        _colapsing = true;
+        _captureMenu.SetActive(true);
+        StartCoroutine(Capture());
+    }
+    public IEnumerator Capture()
+    {
+        Debug.Log("CaptureStart");
+        yield return new WaitForSeconds(4);
+        GameManager.gm.CaptureEnemy(enemyData, enemyModel);
     }
 }

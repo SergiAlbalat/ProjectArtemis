@@ -24,4 +24,8 @@ public class AnimationBehaviour : MonoBehaviour
     {
         animator.SetBool("Stunned", option);
     }
+    public void EnemyColapsing()
+    {
+        animator.SetBool("Colapsing", true);
+    }
 }

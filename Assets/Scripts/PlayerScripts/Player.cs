@@ -111,4 +111,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     {
         _inputActions.Enable();
     }
+
+    public void OnKill(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            nearEnemy.TryKill();
+        }
+    }
 }

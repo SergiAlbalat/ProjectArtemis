@@ -6,6 +6,7 @@ public class TimerBehaviour : MonoBehaviour
 {
     [SerializeField] private SOEnemiesDiffiicultyStructure enemiyTypes;
     [SerializeField] private TextMeshProUGUI timerText;
+    private bool _stoped = false;
     private float _timeLeft;
     private void Start()
     {
@@ -14,14 +15,19 @@ public class TimerBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        if (_timeLeft > 0)
+        if (_timeLeft > 0 && !_stoped)
         {
             _timeLeft -= Time.deltaTime;
             timerText.text = _timeLeft.ToString("F2");
         }
-        else
+        else if(!_stoped)
         {
             GameManager.gm.LoadBase();
         }
     }
+    public void StopTimer()
+    {
+        _stoped = true;
+    }
+    
 }
