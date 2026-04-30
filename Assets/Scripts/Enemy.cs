@@ -59,7 +59,6 @@ public class Enemy : MonoBehaviour, IStun
         {
             _captureMenu.SetActive(false);
         }
-        _timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerBehaviour>();
         if(_stunTime < 0)
             _stunTime = 0;
         _patrolRange = patrolSphere.radius;
@@ -67,8 +66,9 @@ public class Enemy : MonoBehaviour, IStun
         {
             captured = true;
         }
-        else if(SceneManager.GetActiveScene().name == "Battle")
+        else if(SceneManager.GetActiveScene().name == "Battle1")
         {
+            _timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerBehaviour>();
             PlayerVelocityDebuff();
         }
         _aB.EnemyCaptured(captured);

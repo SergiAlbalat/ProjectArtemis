@@ -17,4 +17,5 @@ MonoBehaviour:
   Timer: 90
   StunResistance: 0
   StunForce: 5
+  HarvestTime: 1.5
   prefab: {fileID: 944156248257655990, guid: c2852c8b53643d1408c94f2aa4a2a493, type: 3}

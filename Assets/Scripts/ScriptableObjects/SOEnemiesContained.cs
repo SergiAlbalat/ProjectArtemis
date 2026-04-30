@@ -15,16 +15,17 @@ public class EnemiesContained : ScriptableObject
         public GameObject enemyData;
         public int reward;
         public int model;
+        public float time;
     }
     public bool CheckBuilding(Vector3 build) => storedEnemies.Exists(a => Vector3.Distance(a.harvesterCoords, build) < 0.01f);
-    public void StoreEnemy(Vector3 building, GameObject enemy, int enemyModel)
+    public void StoreEnemy(Vector3 building, GameObject enemy, int enemyModel, float harvestTime)
     {
         var existing = storedEnemies.Find(e => e.harvesterCoords == building);
         int reward = GetReward();
         if (existing != null)
             existing.enemyData = enemy;
         else
-            storedEnemies.Add(new StoredEnemyEntry { harvesterCoords = building, enemyData = enemy, reward = reward, model = enemyModel });
+            storedEnemies.Add(new StoredEnemyEntry { harvesterCoords = building, enemyData = enemy, reward = reward, model = enemyModel, time = harvestTime });
         Debug.Log(storedEnemies.Count);
     }
     private int GetReward()
@@ -52,6 +53,12 @@ public class EnemiesContained : ScriptableObject
     {
         var build = storedEnemies.Find(e => e.harvesterCoords == building);
         return build.model;
+    }
+
+    public float GetEnemyHarvestTimeByBuild(Vector3 building)
+    {
+        var build = storedEnemies.Find(e => e.harvesterCoords == building);
+        return build.time;
     }
 
     public void DeleteEnemyOfBuild(Vector3 building)

@@ -8,5 +8,6 @@ public class SOEnemies : ScriptableObject
     public float Timer;
     public float StunResistance;
     public float StunForce;
+    public float HarvestTime;
     public GameObject prefab;
 }
