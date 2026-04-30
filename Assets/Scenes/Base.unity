@@ -7557,14 +7557,17 @@ MonoBehaviour:
     level: 0
     buildType: 0
     structure: {fileID: 11400000, guid: f52613f7ef3496e4dbcbdb48b75c01b8, type: 2}
+    rotation: 0
   - location: {x: 4.5, y: 0, z: 30}
     level: 0
     buildType: 0
     structure: {fileID: 11400000, guid: f52613f7ef3496e4dbcbdb48b75c01b8, type: 2}
+    rotation: 0
   - location: {x: 50, y: 0, z: -10}
     level: 0
     buildType: 0
     structure: {fileID: 11400000, guid: f52613f7ef3496e4dbcbdb48b75c01b8, type: 2}
+    rotation: -90
   registry: {fileID: 11400000, guid: a34329bd06db49045af426f324d0234e, type: 2}
   enemiesInBase: {fileID: 11400000, guid: 6d5807c3009c1144386fe6bd60d52b91, type: 2}
 --- !u!4 &898400332

@@ -12,6 +12,7 @@ public class BaseManager : MonoBehaviour
         public int level;
         public BuildType buildType;
         public GameObject structure;
+        public float rotation;
     }
     public static BaseManager bm;
 
@@ -62,7 +63,8 @@ public class BaseManager : MonoBehaviour
 
         var prefab = registry.GetBuilding(type, buildLocation.level);
         if (prefab == null) return;
-        buildLocation.structure = Instantiate(prefab, buildLocation.location, Quaternion.identity);
+        Quaternion rotation = Quaternion.Euler(0, buildLocation.rotation, 0);
+        buildLocation.structure = Instantiate(prefab, buildLocation.location, rotation);
         buildLocation.buildType = type;
         if (type == BuildType.Harvester) //If more build types are added that do more stuff, change to a switch
         {
