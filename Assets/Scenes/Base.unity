@@ -8290,7 +8290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db943de4f866d0743822ef713bdf1ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpeditionStation
-  expeditionMenu: {fileID: 808008020}
+  upgradeUI: {fileID: 808008020}
 --- !u!1 &1054192068
 GameObject:
   m_ObjectHideFlags: 0
