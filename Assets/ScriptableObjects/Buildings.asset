@@ -19,6 +19,7 @@ MonoBehaviour:
   - building: 1
     levels:
     - {fileID: 6812648439844423373, guid: 72bb384d6937bb14d995e49765d20e60, type: 3}
+    - {fileID: 681201589602687172, guid: 96fa0bee1eb2a8f468500061be455078, type: 3}
   - building: 1
     levels:
     - {fileID: 6812648439844423373, guid: 72bb384d6937bb14d995e49765d20e60, type: 3}

@@ -9,13 +9,17 @@ public class Harvester : BuildManager
     private GameObject containedEnemy;
     private bool _active = false;
     private bool _finished = false;
-    private DateTime _harvestObjective;
+    private TimeSpan _harvestObjective;
+    private float _timeLeft;
+    private int _level;
     public void InstanciateEnemies(GameObject enemy, int model, float time)
     {
         containedEnemy = Instantiate(enemy, enemySpawn.position, Quaternion.identity);
         containedEnemy.GetComponent<Enemy>().captured = true;
         containedEnemy.GetComponent<Enemy>().UpdateModel(model);
-        _harvestObjective = DateTime.Now.AddMinutes(time);
+        Debug.Log("Harvester Level: " + _level);
+        _harvestObjective = (DateTime.Now.AddMinutes(time) - DateTime.Now) / _level;
+        _timeLeft = (float)_harvestObjective.TotalSeconds;
         _active = true;
     }
     public override void Interact()
@@ -29,12 +33,11 @@ public class Harvester : BuildManager
     private void Update()
     {
         if (_active)
-        {
-            Debug.Log(_harvestObjective);
-            float timeLeft = (float)(_harvestObjective - DateTime.Now).TotalSeconds;
-            if(timeLeft > 0)
+        {   
+            _timeLeft -= Time.deltaTime;
+            if(_timeLeft > 0)
             {
-                timer.text = timeLeft.ToString("F2");
+                timer.text = _timeLeft.ToString("F2");
                 _finished = false;
             }
             else
@@ -43,5 +46,9 @@ public class Harvester : BuildManager
                 _finished = true;
             }
         }
+    }
+    public void SetLevel(int level)
+    {
+        _level = level + 1;
     }
 }

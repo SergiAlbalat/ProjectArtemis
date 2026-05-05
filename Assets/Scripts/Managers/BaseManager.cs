@@ -68,6 +68,7 @@ public class BaseManager : MonoBehaviour
         buildLocation.buildType = type;
         if (type == BuildType.Harvester) //If more build types are added that do more stuff, change to a switch
         {
+            buildLocation.structure.GetComponent<Harvester>().SetLevel(buildLocation.level);
             InstantiateEnemy(buildLocation);
         }
     }
