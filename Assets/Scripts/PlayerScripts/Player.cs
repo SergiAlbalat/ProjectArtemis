@@ -119,4 +119,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
             nearEnemy.TryKill();
         }
     }
+
+    public void OnSave(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            GameManager.gm.SaveGame();
+        }
+    }
 }

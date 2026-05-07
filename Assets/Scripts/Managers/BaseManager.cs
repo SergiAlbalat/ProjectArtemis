@@ -12,6 +12,15 @@ public class BuildingPoint
     public GameObject structure;
     public float rotation;
 }
+[System.Serializable]
+public class StoredEnemyEntry
+{
+    public Vector3 harvesterCoords;
+    public GameObject enemyData;
+    public int reward;
+    public int model;
+    public float time;
+}
 public class BaseManager : MonoBehaviour
 {
     
@@ -117,4 +126,6 @@ public class BaseManager : MonoBehaviour
         enemiesInBase.storedEnemies.Remove(enemy);
         GameManager.gm.Sombrium += enemy.reward;
     }
+    public List<BuildingPoint> GetBuildingPoints() => _buildingPoints;
+    public EnemiesContained GetEnemiesContained() => enemiesInBase;
 }
