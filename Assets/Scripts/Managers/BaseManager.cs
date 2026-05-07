@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
+public class BuildingPoint
+{
+    public Vector3 location;
+    public int level;
+    public BuildType buildType;
+    public GameObject structure;
+    public float rotation;
+}
 public class BaseManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class BuildingPoint
-    {
-        public Vector3 location;
-        public int level;
-        public BuildType buildType;
-        public GameObject structure;
-        public float rotation;
-    }
+    
     public static BaseManager bm;
 
     [SerializeField] private List<BuildingPoint> _buildingPoints = new List<BuildingPoint>();
