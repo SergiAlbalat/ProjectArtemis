@@ -141,4 +141,8 @@ public class BaseManager : MonoBehaviour
             i.enemyData = defaultEnemy;
         }
     }
+    public void DeleteConainedEnemies()
+    {
+        enemiesInBase.DeleteAllEnemies();
+    }
 }

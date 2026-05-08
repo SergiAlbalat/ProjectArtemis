@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -133,7 +134,17 @@ public class GameManager : MonoBehaviour
             Sombrium = data.Sombrium;
             bm.LoadBuilPoints(data.BuildingPoints);
             bm.LoadContainedEnemies(data.EnemiesContained);
-            bm.LoadBase();
+            LoadBase();
         }
     }
+    public void NewGame()
+    {
+        bm.DeleteConainedEnemies();
+        LoadBase();
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+    public bool IsThereSaveFile() => File.Exists(_saveFilePath);
 }

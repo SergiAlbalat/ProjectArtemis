@@ -57,4 +57,9 @@ public class EnemiesContained : ScriptableObject
         var build = storedEnemies.Find(e => e.harvesterCoords == building);
         build.enemyData = null;
     }
+
+    public void DeleteAllEnemies()
+    {
+        storedEnemies = null;
+    }
 }

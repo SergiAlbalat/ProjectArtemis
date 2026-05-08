@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemiesContained
   storedEnemies:
   - harvesterCoords: {x: 4.5, y: 0, z: 30}
-    enemyData: {fileID: 0}
+    enemyData: {fileID: 944156248257655990, guid: c2852c8b53643d1408c94f2aa4a2a493, type: 3}
     reward: 6
     model: 3
     time: 1.5
