@@ -17,9 +17,9 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private SOEquipment protectorData;
     private void Update()
     {
-        weaponText.text = GameManager.gm.WeaponLevel != weaponsData.levels.Count ? GameManager.gm.WeaponNextLvlCost + " - Upgrade Weapon: LVL " + GameManager.gm.WeaponLevel : "Max LVL Weapon Reached";
-        bootsText.text = GameManager.gm.BootsLevel != bootsData.levels.Count ? GameManager.gm.BootsNextLvlCost + " - Upgrade Boots: LVL " + GameManager.gm.BootsLevel : "Max LVL Boots Reached";
-        stunnerText.text = GameManager.gm.StunnerLevel != stunnerData.levels.Count ? GameManager.gm.StunnerNextLvlCost + " - Upgrade Stunner: LVL " + GameManager.gm.StunnerLevel : "Max LVL Stunner Reached";
+        weaponText.text = GameManager.gm.WeaponLevel != weaponsData.levels.Count ? "UPGRADE WEAPON\nCost: " + GameManager.gm.WeaponNextLvlCost + "\n\nLVL: " + GameManager.gm.WeaponLevel : "UPGRADE WEAPON\nCost: MAXED\n\nLVL: " + GameManager.gm.WeaponLevel;
+        bootsText.text = GameManager.gm.BootsLevel != bootsData.levels.Count ? "UPGRADE BOOTS\nCost: " + GameManager.gm.BootsNextLvlCost + "\n\nLVL: " + GameManager.gm.BootsLevel : "UPGRADE BOOTS\nCost: MAXED\n\nLVL: " + GameManager.gm.BootsLevel;
+        stunnerText.text = GameManager.gm.StunnerLevel != stunnerData.levels.Count ? "LVL: " + GameManager.gm.BootsLevel + "\n\nCost: " + GameManager.gm.StunnerNextLvlCost : "Max LVL Stunner Reached"; //ACABAR ESTA LINEA
         protectorText.text = GameManager.gm.ProtectorLevel != protectorData.levels.Count ? GameManager.gm.ProtectorNextLvlCost + " - Upgrade Protector: LVL " + GameManager.gm.ProtectorLevel : "Max LVL Protector Reached";
         weaponInfo.text = "Current Damage: " + weaponsData.levels[GameManager.gm.WeaponLevel - 1];
         bootsInfo.text = "Current Speed Boost: +" + bootsData.levels[GameManager.gm.BootsLevel - 1] + "%";
