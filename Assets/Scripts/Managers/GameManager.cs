@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.IO;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     private float _lvlScaling = 1.5f;
     [SerializeField] private List<SOEnemies> enemyTypes;
     [SerializeField] private Player player;
+    private string _saveFilePath;
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
         UpdateCosts();
+        _saveFilePath = Application.persistentDataPath + "/savefile.json";
     }
     public void LoadBase()
     {
@@ -111,4 +115,36 @@ public class GameManager : MonoBehaviour
         Difficulty = difficulty;
         LoadBattle();
     }
+    public void SaveGame()
+    {
+        SaveFile data = new SaveFile();
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(_saveFilePath, json);
+    }
+    public void LoadGame()
+    {
+        if(File.Exists(_saveFilePath))
+        {
+            string json = File.ReadAllText(_saveFilePath);
+            SaveFile data = JsonUtility.FromJson<SaveFile>(json);
+            WeaponLevel = data.WeaponLevel;
+            BootsLevel = data.BootsLevel;
+            StunnerLevel = data.StunnerLevel;
+            ProtectorLevel = data.ProtectorLevel;
+            Sombrium = data.Sombrium;
+            bm.LoadBuilPoints(data.BuildingPoints);
+            bm.LoadContainedEnemies(data.EnemiesContained);
+            LoadBase();
+        }
+    }
+    public void NewGame()
+    {
+        bm.DeleteConainedEnemies();
+        LoadBase();
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+    public bool IsThereSaveFile() => File.Exists(_saveFilePath);
 }

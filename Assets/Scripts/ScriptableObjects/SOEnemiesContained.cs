@@ -8,15 +8,6 @@ public class EnemiesContained : ScriptableObject
 {
     public List<StoredEnemyEntry> storedEnemies = new();
 
-    [System.Serializable]
-    public class StoredEnemyEntry
-    {
-        public Vector3 harvesterCoords;
-        public GameObject enemyData;
-        public int reward;
-        public int model;
-        public float time;
-    }
     public bool CheckBuilding(Vector3 build) => storedEnemies.Exists(a => Vector3.Distance(a.harvesterCoords, build) < 0.01f);
     public void StoreEnemy(Vector3 building, GameObject enemy, int enemyModel, float harvestTime)
     {
@@ -65,5 +56,10 @@ public class EnemiesContained : ScriptableObject
     {
         var build = storedEnemies.Find(e => e.harvesterCoords == building);
         build.enemyData = null;
+    }
+
+    public void DeleteAllEnemies()
+    {
+        storedEnemies = null;
     }
 }

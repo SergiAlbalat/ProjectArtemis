@@ -6,20 +6,21 @@ using UnityEngine;
 [Serializable]
 public class SaveFile
 {
-    private int _weaponLevel;
-    private int _bootsLevel;
-    private int _stunnerLevel;
-    private int _protectorLevel;
-    private int _sombrium;
-    private List<BuildingPoint> _buildingPoints;
-    private EnemiesContained _enemiesContained;
+    public int WeaponLevel;
+    public int BootsLevel;
+    public int StunnerLevel;
+    public int ProtectorLevel;
+    public int Sombrium;
+    public List<BuildingPoint> BuildingPoints;
+    public List<StoredEnemyEntry> EnemiesContained;
     public SaveFile()
     {
-        _weaponLevel = GameManager.gm.WeaponLevel;
-        _bootsLevel = GameManager.gm.BootsLevel;
-        _stunnerLevel = GameManager.gm.StunnerLevel;
-        _protectorLevel = GameManager.gm.ProtectorLevel;
-        _sombrium = GameManager.gm.Sombrium;
-        
+        WeaponLevel = GameManager.gm.WeaponLevel;
+        BootsLevel = GameManager.gm.BootsLevel;
+        StunnerLevel = GameManager.gm.StunnerLevel;
+        ProtectorLevel = GameManager.gm.ProtectorLevel;
+        Sombrium = GameManager.gm.Sombrium;
+        BuildingPoints = BaseManager.bm.GetBuildingPoints();
+        EnemiesContained = BaseManager.bm.GetEnemiesContained().storedEnemies;
     }
 }

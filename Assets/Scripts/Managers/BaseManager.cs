@@ -12,6 +12,15 @@ public class BuildingPoint
     public GameObject structure;
     public float rotation;
 }
+[System.Serializable]
+public class StoredEnemyEntry
+{
+    public Vector3 harvesterCoords;
+    public GameObject enemyData;
+    public int reward;
+    public int model;
+    public float time;
+}
 public class BaseManager : MonoBehaviour
 {
     
@@ -20,6 +29,7 @@ public class BaseManager : MonoBehaviour
     [SerializeField] private List<BuildingPoint> _buildingPoints = new List<BuildingPoint>();
     [SerializeField] private StucturesData registry;
     [SerializeField] private EnemiesContained enemiesInBase;
+    [SerializeField] private GameObject defaultEnemy;
 
     private void Awake()
     {
@@ -116,5 +126,23 @@ public class BaseManager : MonoBehaviour
         );
         enemiesInBase.storedEnemies.Remove(enemy);
         GameManager.gm.Sombrium += enemy.reward;
+    }
+    public List<BuildingPoint> GetBuildingPoints() => _buildingPoints;
+    public EnemiesContained GetEnemiesContained() => enemiesInBase;
+    public void LoadBuilPoints(List<BuildingPoint> buildingPoints)
+    {
+        _buildingPoints = buildingPoints;
+    }
+    public void LoadContainedEnemies(List<StoredEnemyEntry> enemyEntries)
+    {
+        enemiesInBase.storedEnemies = enemyEntries;
+        foreach(StoredEnemyEntry i in enemyEntries)
+        {
+            i.enemyData = defaultEnemy;
+        }
+    }
+    public void DeleteConainedEnemies()
+    {
+        enemiesInBase.DeleteAllEnemies();
     }
 }
