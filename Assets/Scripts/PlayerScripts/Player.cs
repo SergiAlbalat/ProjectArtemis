@@ -127,4 +127,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
             GameManager.gm.SaveGame();
         }
     }
+
+    public void OnLoad(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            GameManager.gm.LoadGame();
+        }
+    }
 }

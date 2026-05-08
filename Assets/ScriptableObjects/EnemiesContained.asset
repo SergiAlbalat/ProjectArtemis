@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ce75dc6fa1120459a1003654488984, type: 3}
   m_Name: EnemiesContained
   m_EditorClassIdentifier: Assembly-CSharp::EnemiesContained
-  storedEnemies: []
+  storedEnemies:
+  - harvesterCoords: {x: 4.5, y: 0, z: 30}
+    enemyData: {fileID: 0}
+    reward: 6
+    model: 3
+    time: 1.5

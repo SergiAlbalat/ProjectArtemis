@@ -120,4 +120,20 @@ public class GameManager : MonoBehaviour
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(_saveFilePath, json);
     }
+    public void LoadGame()
+    {
+        if(File.Exists(_saveFilePath))
+        {
+            string json = File.ReadAllText(_saveFilePath);
+            SaveFile data = JsonUtility.FromJson<SaveFile>(json);
+            WeaponLevel = data.WeaponLevel;
+            BootsLevel = data.BootsLevel;
+            StunnerLevel = data.StunnerLevel;
+            ProtectorLevel = data.ProtectorLevel;
+            Sombrium = data.Sombrium;
+            bm.LoadBuilPoints(data.BuildingPoints);
+            bm.LoadContainedEnemies(data.EnemiesContained);
+            bm.LoadBase();
+        }
+    }
 }

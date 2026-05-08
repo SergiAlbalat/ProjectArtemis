@@ -7570,6 +7570,7 @@ MonoBehaviour:
     rotation: -90
   registry: {fileID: 11400000, guid: a34329bd06db49045af426f324d0234e, type: 2}
   enemiesInBase: {fileID: 11400000, guid: 6d5807c3009c1144386fe6bd60d52b91, type: 2}
+  defaultEnemy: {fileID: 944156248257655990, guid: c2852c8b53643d1408c94f2aa4a2a493, type: 3}
 --- !u!4 &898400332
 Transform:
   m_ObjectHideFlags: 0
