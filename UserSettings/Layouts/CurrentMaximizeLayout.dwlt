@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 112}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 6552
+  controlID: 9692
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 6553
+  controlID: 9693
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 6554
+  controlID: 9694
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -249,10 +249,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_Data: 63600
+      m_SelectedIDs: []
       m_LastClickedID:
-        m_Data: 63600
+        m_Data: 0
       m_ExpandedIDs:
       - m_Data: -28188
       - m_Data: -27674
@@ -890,7 +889,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.08199754, y: 0.17577572, z: -0.014686105, w: 0.9809052}
     speed: 2
-    m_Value: {x: 0.08199708, y: 0.17577474, z: -0.014686023, w: 0.9808997}
+    m_Value: {x: -0.08199754, y: -0.17577572, z: 0.014686106, w: -0.98090523}
   m_Size:
     m_Target: 521.4579
     speed: 2
@@ -1206,7 +1205,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Models/Projectile
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1216,7 +1215,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Models/Projectile
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GitHub\ProjectArtemis
   m_LockTracker:
@@ -1225,12 +1224,13 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs:
-    - m_Data: 48712
+    - m_Data: 67778
     m_LastClickedID:
-      m_Data: 48712
+      m_Data: 67778
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 48584
+    - m_Data: 48704
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -1294,9 +1294,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: 63600
-    m_LastClickedInstanceID: 63600
+    m_SelectedInstanceIDs: []
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 48078
