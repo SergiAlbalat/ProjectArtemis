@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Station : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Canvas upgradeUI;
+    [SerializeField] private Canvas stationMenu;
     protected Player player;
     private CameraBehaviour cameraBehaviour;
     private void Start()
@@ -12,14 +12,14 @@ public class Station : MonoBehaviour, IInteractable
     }
     public void Interact()
     {
-        upgradeUI.gameObject.SetActive(true);
+        stationMenu.gameObject.SetActive(true);
         player.DisableMovement();
         Cursor.lockState = CursorLockMode.None;
         cameraBehaviour.DisableCamera();
     }
     public void CloseMenu()
     {
-        upgradeUI.gameObject.SetActive(false);
+        stationMenu.gameObject.SetActive(false);
         player.EnableMovement();
         Cursor.lockState = CursorLockMode.Locked;
         cameraBehaviour.EnableCamera();

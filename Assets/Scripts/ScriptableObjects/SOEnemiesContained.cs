@@ -60,6 +60,6 @@ public class EnemiesContained : ScriptableObject
 
     public void DeleteAllEnemies()
     {
-        storedEnemies = null;
+        storedEnemies = new List<StoredEnemyEntry>();
     }
 }
