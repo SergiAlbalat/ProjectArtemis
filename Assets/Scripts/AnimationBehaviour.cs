@@ -16,6 +16,14 @@ public class AnimationBehaviour : MonoBehaviour
     {
         animator.SetTrigger("Attack");
     }
+    public void PlayerRight(bool option)
+    {
+        animator.SetBool("Right", option);
+    }
+    public void PlayerLeft(bool option)
+    {
+        animator.SetBool("Left", option);
+    }
     public void EnemyCaptured(bool option)
     {
         animator.SetBool("Captured", option);

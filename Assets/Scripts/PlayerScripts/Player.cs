@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
 {
     [SerializeField] private float interactRange = 2f;
     [SerializeField] private LayerMask interactableLayer;
+    private AnimationBehaviour _aB;
     private Camera playerCamera;
     private InputSystem_Actions _inputActions;
     private MoveBehaviour _mB;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
+        _aB = GetComponent<AnimationBehaviour>();
         _inputActions = new InputSystem_Actions();
         _inputActions.Player.SetCallbacks(this);
         _currentWeapon = GetComponent<Weapon>();
@@ -133,6 +135,30 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         if(context.performed)
         {
             GameManager.gm.LoadGame();
+        }
+    }
+
+    public void OnLeft(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _aB.PlayerLeft(true);
+        }
+        else
+        {
+            _aB.PlayerLeft(false);
+        }
+    }
+
+    public void OnRight(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _aB.PlayerRight(true);
+        }
+        else
+        {
+            _aB.PlayerRight(false);
         }
     }
 }
