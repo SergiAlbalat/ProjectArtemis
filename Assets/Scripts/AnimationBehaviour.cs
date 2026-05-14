@@ -24,6 +24,10 @@ public class AnimationBehaviour : MonoBehaviour
     {
         animator.SetBool("Left", option);
     }
+    public void PlayerBack(bool option)
+    {
+        animator.SetBool("Back", option);
+    }
     public void EnemyCaptured(bool option)
     {
         animator.SetBool("Captured", option);

@@ -172,6 +172,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""0e03a401-4094-4282-8149-d2752bfcca1e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -392,6 +401,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c9f4440-12bb-46bb-8d64-a616dc3b7cf3"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1016,6 +1036,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Load = m_Player.FindAction("Load", throwIfNotFound: true);
         m_Player_Left = m_Player.FindAction("Left", throwIfNotFound: true);
         m_Player_Right = m_Player.FindAction("Right", throwIfNotFound: true);
+        m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1122,6 +1143,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Load;
     private readonly InputAction m_Player_Left;
     private readonly InputAction m_Player_Right;
+    private readonly InputAction m_Player_Back;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1169,6 +1191,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Right".
         /// </summary>
         public InputAction @Right => m_Wrapper.m_Player_Right;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Back".
+        /// </summary>
+        public InputAction @Back => m_Wrapper.m_Player_Back;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1222,6 +1248,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Right.started += instance.OnRight;
             @Right.performed += instance.OnRight;
             @Right.canceled += instance.OnRight;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
         }
 
         /// <summary>
@@ -1260,6 +1289,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Right.started -= instance.OnRight;
             @Right.performed -= instance.OnRight;
             @Right.canceled -= instance.OnRight;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
         }
 
         /// <summary>
@@ -1719,6 +1751,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Back" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBack(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

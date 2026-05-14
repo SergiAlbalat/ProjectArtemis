@@ -161,4 +161,16 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
             _aB.PlayerRight(false);
         }
     }
+
+    public void OnBack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _aB.PlayerBack(true);
+        }
+        else
+        {
+            _aB.PlayerBack(false);
+        }
+    }
 }
