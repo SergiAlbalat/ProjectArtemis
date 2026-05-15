@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public int ProtectorNextLvlCost;
     public int Difficulty = 1;
     private float _lvlScaling = 1.5f;
+    public AudioSource _musicSpeaker;
+    public AudioSource _sfxSpeaker;
     [SerializeField] private List<SOEnemies> enemyTypes;
     [SerializeField] private Player player;
     private string _saveFilePath;
@@ -61,15 +63,20 @@ public class GameManager : MonoBehaviour
         StunnerNextLvlCost = (StunnerLevel * _lvlScaling).ConvertTo<int>();
         ProtectorNextLvlCost = (ProtectorLevel * _lvlScaling).ConvertTo<int>();
     }
-    private void ShowUI()
-    {
-
-    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == "Main Menu")
+        {
+            AudioClip music = SoundManager.sm.GetClip(SoundManager.AudioClips.MainMenuAmbience);
+            _musicSpeaker.Stop();
+            _musicSpeaker.PlayOneShot(music);
+        }
         if (scene.name == "Base")
         {
             bm.LoadBase();
+            AudioClip music = SoundManager.sm.GetClip(SoundManager.AudioClips.BaseAmbience);
+            _musicSpeaker.Stop();
+            _musicSpeaker.PlayOneShot(music);
             Instantiate(player, new Vector3(0, 1, 0), Quaternion.identity);
         }
 
@@ -78,6 +85,9 @@ public class GameManager : MonoBehaviour
             Player battlePlayer = Instantiate(player, new Vector3(0, 1, -30), Quaternion.identity);
             Vector3 spawnPoint;
             GameObject enemy;
+            AudioClip music = SoundManager.sm.GetClip(SoundManager.AudioClips.BattleAmbience);
+            _musicSpeaker.Stop();
+            _musicSpeaker.PlayOneShot(music);
             if (TryGetNavMeshSpawnPoint(Vector3.zero, 100f, out spawnPoint))
             {
                 enemy = Instantiate(enemyTypes[Difficulty - 1].prefab, spawnPoint, Quaternion.identity);
@@ -115,6 +125,7 @@ public class GameManager : MonoBehaviour
         Difficulty = difficulty;
         LoadBattle();
     }
+    // Handling of save data
     public void SaveGame()
     {
         SaveFile data = new SaveFile();
@@ -142,9 +153,9 @@ public class GameManager : MonoBehaviour
         bm.DeleteConainedEnemies();
         LoadBase();
     }
+    public bool IsThereSaveFile() => File.Exists(_saveFilePath);
     public void ExitGame()
     {
         Application.Quit();
     }
-    public bool IsThereSaveFile() => File.Exists(_saveFilePath);
 }
