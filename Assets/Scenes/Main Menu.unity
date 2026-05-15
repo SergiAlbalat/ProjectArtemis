@@ -238,7 +238,7 @@ MonoBehaviour:
   - type: 3
     clip: {fileID: 8300000, guid: 55900549538295f4aa921c94ccce912e, type: 3}
   - type: 4
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 72757bb2a7e18d741a0a504b4830f0d6, type: 3}
   - type: 5
     clip: {fileID: 8300000, guid: 7d79151d627a0684d9199db2ba0d0eb5, type: 3}
 --- !u!4 &129125625
@@ -315,8 +315,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
-  m_sharedMaterial: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
+  m_sharedMaterial: {fileID: -7545980623064888586, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -524,8 +524,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Load Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
-  m_sharedMaterial: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
+  m_sharedMaterial: {fileID: -7545980623064888586, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 780635106}
   - component: {fileID: 780635105}
   - component: {fileID: 780635104}
+  - component: {fileID: 780635107}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -878,6 +879,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780635102}
   m_CullTransparentMesh: 1
+--- !u!114 &780635107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780635102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7042324809b2aa548bf72f1491b83729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverBehaviour
 --- !u!1 &784401085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,6 +1040,7 @@ GameObject:
   - component: {fileID: 809950294}
   - component: {fileID: 809950293}
   - component: {fileID: 809950292}
+  - component: {fileID: 809950295}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1137,6 +1151,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809950290}
   m_CullTransparentMesh: 1
+--- !u!114 &809950295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809950290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7042324809b2aa548bf72f1491b83729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverBehaviour
 --- !u!1001 &812815624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1244,6 +1270,7 @@ GameObject:
   - component: {fileID: 914150055}
   - component: {fileID: 914150054}
   - component: {fileID: 914150053}
+  - component: {fileID: 914150056}
   m_Layer: 5
   m_Name: LoadGame
   m_TagString: Untagged
@@ -1365,6 +1392,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914150051}
   m_CullTransparentMesh: 1
+--- !u!114 &914150056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914150051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7042324809b2aa548bf72f1491b83729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverBehaviour
 --- !u!1 &946832434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1592,7 @@ GameObject:
   - component: {fileID: 1098487645}
   - component: {fileID: 1098487644}
   - component: {fileID: 1098487643}
+  - component: {fileID: 1098487646}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -1674,6 +1714,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098487641}
   m_CullTransparentMesh: 1
+--- !u!114 &1098487646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098487641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7042324809b2aa548bf72f1491b83729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverBehaviour
 --- !u!1 &1143992067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,13 +2560,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 195
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2669,8 +2721,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
-  m_sharedMaterial: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
+  m_sharedMaterial: {fileID: -7545980623064888586, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2759,6 +2811,7 @@ GameObject:
   - component: {fileID: 1629359380}
   - component: {fileID: 1629359379}
   - component: {fileID: 1629359378}
+  - component: {fileID: 1629359381}
   m_Layer: 5
   m_Name: IDK
   m_TagString: Untagged
@@ -2868,6 +2921,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629359376}
   m_CullTransparentMesh: 1
+--- !u!114 &1629359381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629359376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7042324809b2aa548bf72f1491b83729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverBehaviour
 --- !u!1 &1740438009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,8 +2992,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PlaceHolder
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
-  m_sharedMaterial: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
+  m_sharedMaterial: {fileID: -7545980623064888586, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3064,8 +3129,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
-  m_sharedMaterial: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
+  m_sharedMaterial: {fileID: -7545980623064888586, guid: d548d3fa890b7004a9000d39055cde67, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
