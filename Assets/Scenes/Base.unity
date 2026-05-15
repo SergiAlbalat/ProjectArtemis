@@ -23529,6 +23529,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 3717135663234561491, guid: 478eba10b69f10644956b604344c525d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+    - target: {fileID: 3717135663234561491, guid: 478eba10b69f10644956b604344c525d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+    - target: {fileID: 3717135663234561491, guid: 478eba10b69f10644956b604344c525d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5910657352336444488, guid: 478eba10b69f10644956b604344c525d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
