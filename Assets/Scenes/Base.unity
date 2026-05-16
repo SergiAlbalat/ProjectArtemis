@@ -6577,6 +6577,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1616666033}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &658053783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1726207504675875742, guid: 478eba10b69f10644956b604344c525d, type: 3}
+  m_PrefabInstance: {fileID: 1747096227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &658230114
 GameObject:
   m_ObjectHideFlags: 0
@@ -15048,6 +15053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpeditionStation
   stationMenu: {fileID: 808008020}
+  playerHUD: {fileID: 658053783}
 --- !u!1 &1054192068
 GameObject:
   m_ObjectHideFlags: 0
@@ -23529,6 +23535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 1726207504675875742, guid: 478eba10b69f10644956b604344c525d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3717135663234561491, guid: 478eba10b69f10644956b604344c525d, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -26761,6 +26771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeStation
   stationMenu: {fileID: 1958038247}
+  playerHUD: {fileID: 658053783}
 --- !u!65 &4609064832735876849
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Station : MonoBehaviour, IInteractable
 {
     [SerializeField] private Canvas stationMenu;
+    [SerializeField] private GameObject playerHUD;
     protected Player player;
     private CameraBehaviour cameraBehaviour;
     private void Start()
@@ -16,6 +17,8 @@ public class Station : MonoBehaviour, IInteractable
         player.DisableMovement();
         Cursor.lockState = CursorLockMode.None;
         cameraBehaviour.DisableCamera();
+        playerHUD.SetActive(false);
+        playerHUD.SetActive(true);
     }
     public void CloseMenu()
     {
