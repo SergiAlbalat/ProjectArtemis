@@ -3271,8 +3271,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
-  m_sharedMaterial: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4933ccd00d53ee049ad385cb3715f4aa, type: 2}
+  m_sharedMaterial: {fileID: -2698665973095343426, guid: 4933ccd00d53ee049ad385cb3715f4aa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3590,6 +3590,8 @@ MonoBehaviour:
   StunnerNextLvlCost: 0
   ProtectorNextLvlCost: 0
   Difficulty: 1
+  _musicSpeaker: {fileID: 0}
+  _sfxSpeaker: {fileID: 0}
   enemyTypes:
   - {fileID: 11400000, guid: 9eebcdad924bc634fbb7a5a8b9fa5cec, type: 2}
   - {fileID: 11400000, guid: 55b3e21de159af04a85cc3b63c46aaa1, type: 2}
@@ -3671,8 +3673,8 @@ MonoBehaviour:
 
     Wait to capture'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
-  m_sharedMaterial: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4933ccd00d53ee049ad385cb3715f4aa, type: 2}
+  m_sharedMaterial: {fileID: -2698665973095343426, guid: 4933ccd00d53ee049ad385cb3715f4aa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5954,8 +5956,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enemy Defeated
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
-  m_sharedMaterial: {fileID: 8404204029401410893, guid: 1c74e3998f53bf9468dc17f5ef5b463e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4933ccd00d53ee049ad385cb3715f4aa, type: 2}
+  m_sharedMaterial: {fileID: -2698665973095343426, guid: 4933ccd00d53ee049ad385cb3715f4aa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
