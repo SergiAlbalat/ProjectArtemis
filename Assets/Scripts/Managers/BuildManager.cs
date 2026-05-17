@@ -16,6 +16,9 @@ public class BuildManager : MonoBehaviour, IInteractable
             GameManager.gm.Sombrium -= 2;
             BaseManager.bm.levelUpBuilding(transform);
         }
-        _speaker.PlayOneShot(_wrong);
+        else
+        {
+            _speaker.PlayOneShot(_wrong);
+        }
     }
 }

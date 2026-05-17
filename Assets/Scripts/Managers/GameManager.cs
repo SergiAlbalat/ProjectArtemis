@@ -130,6 +130,11 @@ public class GameManager : MonoBehaviour
         Difficulty = difficulty;
         LoadBattle();
     }
+    public void StartStunTimer(float stunTime)
+    {
+        TimerBehaviour timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerBehaviour>();
+        timer.StunTimer(stunTime);
+    }
     // Handling of save data
     public void SaveGame()
     {

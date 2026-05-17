@@ -31,6 +31,11 @@ public class SoundManager : MonoBehaviour
     public static SoundManager sm;
     private void Awake()
     {
+        if (sm != null && sm != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         sm = this;
         DontDestroyOnLoad(gameObject);
         BuildDictionary();

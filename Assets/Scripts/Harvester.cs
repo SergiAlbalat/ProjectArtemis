@@ -13,7 +13,7 @@ public class Harvester : BuildManager
     private float _timeLeft;
     private int _level;
     private AudioClip _finishedSound, _emptiedSound;
-    public void Start()
+    public void OnEnable()
     {
         _finishedSound = SoundManager.sm.GetClip(SoundManager.AudioClips.HarvesterFinished);
         _emptiedSound = SoundManager.sm.GetClip(SoundManager.AudioClips.HarvesterEmptied);
@@ -53,6 +53,7 @@ public class Harvester : BuildManager
                 timer.text = "Ready";
                 _finished = true;
                 _speaker.PlayOneShot(_finishedSound);
+                _active = false;
             }
         }
     }

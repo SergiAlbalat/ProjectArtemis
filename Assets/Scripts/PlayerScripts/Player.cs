@@ -80,6 +80,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     {
         stuned = true;
         _inputActions.Disable();
+        GameManager.gm.StartStunTimer(time);
         yield return new WaitForSeconds(time);
         stuned = false;
         _inputActions.Enable();

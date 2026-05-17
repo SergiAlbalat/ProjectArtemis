@@ -114,6 +114,11 @@ public class BaseManager : MonoBehaviour
         if (harvester == null)
         {
             Debug.LogWarning("No available Harvester found to store enemy.");
+            PlayerHUD playerHUD = FindFirstObjectByType<PlayerHUD>();
+            if (playerHUD != null)
+            {
+                playerHUD.ShowNoHarvesterPanel();
+            }
             return;
         }
 

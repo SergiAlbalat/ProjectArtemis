@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
     }
     private IEnumerator DespawnCooldown()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
         Despawn();
     }
 }
