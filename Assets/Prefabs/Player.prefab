@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdb380be86ebf64d83f3790f0f5f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBehaviour
-  velocity: 10
+  velocity: 1
 --- !u!114 &7672006568533086826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +193,7 @@ MonoBehaviour:
   Stunner: {fileID: 0}
   Protector: {fileID: 0}
   StunTime: 5
+  StepTime: 0.5
 --- !u!114 &6533683870557122744
 MonoBehaviour:
   m_ObjectHideFlags: 0

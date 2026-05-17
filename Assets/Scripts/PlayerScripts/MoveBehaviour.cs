@@ -9,7 +9,7 @@ public class MoveBehaviour : MonoBehaviour
     private Vector3 movement;
     private Boots _boots;
     private bool _inBattle;
-    [SerializeField] private float velocity = 10;
+    [SerializeField] private float velocity = 1;
     private void Awake()
     {
         _cC = GetComponent<CharacterController>();
@@ -31,7 +31,7 @@ public class MoveBehaviour : MonoBehaviour
     
     private void FixedUpdate()
     {
-        _cC.Move(Time.deltaTime * velocity * movement);
+        _cC.Move(Time.deltaTime * velocity * 10 * movement);
         _aB.PlayerMove(Vector3.Magnitude(movement), _inBattle);
     }
     public void AjustVelocity(float debuff)
