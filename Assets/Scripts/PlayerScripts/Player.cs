@@ -14,7 +14,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     private MoveBehaviour _mB;
     private Weapon _currentWeapon;
     private Vector2 _direction;
-    private AudioClip _punchSound, _stepSound;
+    private AudioClip _punchSound, _stepSound, _playerStunned;
     private float lastStep = 0;
     public bool inRange = false;
     public Enemy nearEnemy = null;
@@ -36,6 +36,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         Stunner = GetComponent<Stunner>();
         _stepSound = SoundManager.sm.GetClip(SoundManager.AudioClips.Step);
         _punchSound = SoundManager.sm.GetClip(SoundManager.AudioClips.Punch);
+        _playerStunned = SoundManager.sm.GetClip(SoundManager.AudioClips.PlayerStunned);
     }
     private void OnEnable()
     {
@@ -75,6 +76,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     }
     public void StartStun()
     {
+        GameManager.gm.PlayGlobalSFX(_playerStunned);
         StartCoroutine(Stun(StunTime - Protector.StunResistance));
     }
     public IEnumerator Stun(float time)

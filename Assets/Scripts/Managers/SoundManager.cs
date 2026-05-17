@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour
         EnemyShoot,
         Punch,
         Step,
+        PlayerStunned
     }
     [System.Serializable]
     public struct AudioEntry
