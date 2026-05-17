@@ -12,8 +12,11 @@ public class VolumeSlider : MonoBehaviour
     private void Start()
     {
         masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        SetVolume("MasterVolume", masterSlider.value);
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        SetVolume("MusicVolume", musicSlider.value);
         sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        SetVolume("SFXVolume", sfxSlider.value);
 
         masterSlider.onValueChanged.AddListener(v => SetVolume("MasterVolume", v));
         musicSlider.onValueChanged.AddListener(v => SetVolume("MusicVolume", v));
@@ -22,7 +25,14 @@ public class VolumeSlider : MonoBehaviour
 
     private void SetVolume(string parameter, float value)
     {
-        audioMixer.SetFloat(parameter, Mathf.Log10(value) * 20);
+        if (value < 0.001)
+        {
+            audioMixer.SetFloat(parameter, -80);
+        }
+        else
+        {
+            audioMixer.SetFloat(parameter, Mathf.Log10(value) * 20);
+        }
         PlayerPrefs.SetFloat(parameter, value);
     }
 }

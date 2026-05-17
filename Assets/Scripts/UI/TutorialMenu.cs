@@ -39,7 +39,7 @@ public class TutorialMenu : MonoBehaviour
         tutorial3.SetActive(true);
         tutorial1.SetActive(false);
         tutorial2.SetActive(false);
-        tutorial1.SetActive(false);
+        tutorial4.SetActive(false);
     }
     public void StartTutorial4()
     {
