@@ -13,12 +13,15 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     private MoveBehaviour _mB;
     private Weapon _currentWeapon;
     private Vector2 _direction;
+    private AudioClip _punchSound, _stepSound;
+    private float lastStep = 0;
     public bool inRange = false;
     public Enemy nearEnemy = null;
     public bool stuned = false;
     public Stunner Stunner;
     public Protector Protector;
-    public float StunTime = 5;
+    public float StunTime = 5f;
+    public float StepTime = 0.5f;
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
@@ -30,6 +33,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         Cursor.lockState = CursorLockMode.Locked;
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Stunner = GetComponent<Stunner>();
+        _stepSound = SoundManager.sm.GetClip(SoundManager.AudioClips.Step);
+        _punchSound = SoundManager.sm.GetClip(SoundManager.AudioClips.Punch);
     }
     private void OnEnable()
     {
@@ -41,6 +46,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
     }
     private void Update()
     {
+        if (_direction != Vector2.zero)
+        {
+            if (lastStep < Time.time)
+            {
+                GameManager.gm.PlayGlobalSFX(_stepSound);
+                lastStep = Time.time + StepTime;
+            }
+        }
         _mB.PlayerMove(new Vector3(_direction.x, 0, _direction.y));
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -96,6 +109,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
             {
                 if (inRange)
                 {
+                    GameManager.gm.PlayGlobalSFX(_punchSound);
                     _currentWeapon.Attack(nearEnemy);
                 }
             }

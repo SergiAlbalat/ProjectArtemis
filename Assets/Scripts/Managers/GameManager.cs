@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
                 enemy = Instantiate(enemyTypes[Difficulty - 1].prefab, Vector3.zero, Quaternion.identity);
             }
             battlePlayer.nearEnemy = enemy.GetComponent<Enemy>();
+            battlePlayer.StepTime = 0.3f;
         }
         ChangeMusic();
     }

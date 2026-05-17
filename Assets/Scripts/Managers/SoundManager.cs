@@ -11,7 +11,14 @@ public class SoundManager : MonoBehaviour
         StartGame,
         HoverButton,
         PressButton,
-
+        WrongSound,
+        HarvesterFinished,
+        HarvesterEmptied,
+        EnemyHurt,
+        EnemyStun,
+        EnemyShoot,
+        Punch,
+        Step,
     }
     [System.Serializable]
     public struct AudioEntry

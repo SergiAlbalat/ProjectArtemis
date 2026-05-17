@@ -12,6 +12,12 @@ public class Harvester : BuildManager
     private TimeSpan _harvestObjective;
     private float _timeLeft;
     private int _level;
+    private AudioClip _finishedSound, _emptiedSound;
+    public void Start()
+    {
+        _finishedSound = SoundManager.sm.GetClip(SoundManager.AudioClips.HarvesterFinished);
+        _emptiedSound = SoundManager.sm.GetClip(SoundManager.AudioClips.HarvesterEmptied);
+    }
     public void InstanciateEnemies(GameObject enemy, int model, float time)
     {
         containedEnemy = Instantiate(enemy, enemySpawn.position, Quaternion.identity);
@@ -26,8 +32,10 @@ public class Harvester : BuildManager
     {
         if(containedEnemy != null && _finished)
         {
+            _speaker.PlayOneShot(_emptiedSound);
             Destroy(containedEnemy);
             BaseManager.bm.HarvestEnemy(transform.position);
+            _active = false;
         }
     }
     private void Update()
@@ -44,6 +52,7 @@ public class Harvester : BuildManager
             {
                 timer.text = "Ready";
                 _finished = true;
+                _speaker.PlayOneShot(_finishedSound);
             }
         }
     }

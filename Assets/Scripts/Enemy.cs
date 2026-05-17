@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -30,9 +31,11 @@ public class Enemy : MonoBehaviour, IStun
     public int enemyModel = 0;
     [SerializeField] private SONode rootNode;
     public bool stuned = false;
+    private AudioSource _speaker;
+    private AudioClip _stunSound, _hurtSound, _shootSound;
     private void Awake()
     {
-
+        _speaker = GetComponent<AudioSource>();
         _aB = GetComponent<AnimationBehaviour>();
         if (models.Count > 0)
         {
@@ -46,6 +49,9 @@ public class Enemy : MonoBehaviour, IStun
     }
     private void Start()
     {
+        _stunSound = SoundManager.sm.GetClip(SoundManager.AudioClips.EnemyStun);
+        _hurtSound = SoundManager.sm.GetClip(SoundManager.AudioClips.EnemyHurt);
+        _shootSound = SoundManager.sm.GetClip(SoundManager.AudioClips.EnemyShoot);
         _agent = GetComponent<NavMeshAgent>();
         _aB.animator = models[enemyModel].GetComponent<Animator>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -121,9 +127,11 @@ public class Enemy : MonoBehaviour, IStun
             proj.GetComponent<Projectile>().enemy = this;
             proj.GetComponent<Projectile>().StunForce = _stunForce;
         }
+        _speaker.PlayOneShot(_shootSound);
     }
     public void StartStun()
     {
+        _speaker.PlayOneShot(_stunSound);
         StartCoroutine(Stun(_stunTime));
     }
     public IEnumerator Stun(float time)
@@ -202,6 +210,7 @@ public class Enemy : MonoBehaviour, IStun
     }
     public void OnHurt(float damage)
     {
+        _speaker.PlayOneShot(_hurtSound);
         _currentHP -= damage;
         if (_currentHP <= 0)
         {
