@@ -1,26 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[System.Serializable]
-public class BuildingPoint
-{
-    public Vector3 location;
-    public int level;
-    public BuildType buildType;
-    public GameObject structure;
-    public float rotation;
-}
-[System.Serializable]
-public class StoredEnemyEntry
-{
-    public Vector3 harvesterCoords;
-    public GameObject enemyData;
-    public int reward;
-    public int model;
-    public float time;
-}
 public class BaseManager : MonoBehaviour
 {
     
@@ -124,6 +107,7 @@ public class BaseManager : MonoBehaviour
         }
 
         enemiesInBase.StoreEnemy(harvester.location, GameManager.gm.capturedEnemy.prefab, GameManager.gm.capturedEnemyModel, GameManager.gm.capturedEnemy.HarvestTime);
+        GameManager.gm.capturedEnemy = null;
     }
     public void HarvestEnemy(Vector3 harvesterPosition)
     {

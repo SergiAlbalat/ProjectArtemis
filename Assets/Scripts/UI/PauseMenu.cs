@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MenuBehaviour
 {
     private SettingsMenu _settingsMenu;
-    [SerializeField] private GameObject menuPanel;
+    [SerializeField] private GameObject pauseMenuPanel;
     private void Awake()
     {
-        gameObject.SetActive(false);
-        menuPanel.SetActive(true);
+        pauseMenuPanel.SetActive(true);
         _settingsMenu = GetComponent<SettingsMenu>();
     }
-    public void CloseMenu()
+    public override void CloseMenu()
     {
         gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
@@ -22,11 +21,15 @@ public class PauseMenu : MonoBehaviour
     public void OpenSettings()
     {
         _settingsMenu.OpenMenu();
-        menuPanel.SetActive(false);
+        pauseMenuPanel.SetActive(false);
     }
     public void CloseSettings()
     {
         _settingsMenu.CloseMenu();
-        menuPanel.SetActive(true);
+        pauseMenuPanel.SetActive(true);
+    }
+    public void ExitGame()
+    {
+        GameManager.gm.ExitGame();
     }
 }

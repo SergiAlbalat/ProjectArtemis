@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class EnemiesContained : ScriptableObject
         if (existing != null)
             existing.enemyData = enemy;
         else
-            storedEnemies.Add(new StoredEnemyEntry { harvesterCoords = building, enemyData = enemy, reward = reward, model = enemyModel, time = harvestTime });
+            storedEnemies.Add(new StoredEnemyEntry { harvesterCoords = building, enemyData = enemy, reward = reward, model = enemyModel, time = DateTime.Now.AddMinutes(harvestTime) });
         Debug.Log(storedEnemies.Count);
     }
     private int GetReward()
@@ -46,7 +47,7 @@ public class EnemiesContained : ScriptableObject
         return build.model;
     }
 
-    public float GetEnemyHarvestTimeByBuild(Vector3 building)
+    public DateTime GetEnemyHarvestTimeByBuild(Vector3 building)
     {
         var build = storedEnemies.Find(e => e.harvesterCoords == building);
         return build.time;

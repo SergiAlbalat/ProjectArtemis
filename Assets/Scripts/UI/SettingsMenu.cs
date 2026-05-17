@@ -1,18 +1,5 @@
 using UnityEngine;
 
-public class SettingsMenu : MonoBehaviour
+public class SettingsMenu : MenuBehaviour
 {
-    [SerializeField] private GameObject menuPanel;
-    private void Awake()
-    {
-        menuPanel.SetActive(false);
-    }
-    public void OpenMenu()
-    {
-        menuPanel.SetActive(true);
-    }
-    public void CloseMenu()
-    {
-        menuPanel.SetActive(false);
-    }
 }

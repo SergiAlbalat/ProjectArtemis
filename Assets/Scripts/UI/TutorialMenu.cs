@@ -1,24 +1,15 @@
 using UnityEngine;
 
-public class TutorialMenu : MonoBehaviour
+public class TutorialMenu : MenuBehaviour
 {
-    [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject tutorial1;
     [SerializeField] private GameObject tutorial2;
     [SerializeField] private GameObject tutorial3;
     [SerializeField] private GameObject tutorial4;
-    private void Awake()
-    {
-        menuPanel.SetActive(false);
-    }
-    public void OpenMenu()
+    public override void OpenMenu()
     {
         menuPanel.SetActive(true);
         StartTutorial1();
-    }
-    public void CloseMenu()
-    {
-        menuPanel.SetActive(false);
     }
     public void StartTutorial1()
     {

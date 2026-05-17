@@ -18,13 +18,13 @@ public class Harvester : BuildManager
         _finishedSound = SoundManager.sm.GetClip(SoundManager.AudioClips.HarvesterFinished);
         _emptiedSound = SoundManager.sm.GetClip(SoundManager.AudioClips.HarvesterEmptied);
     }
-    public void InstanciateEnemies(GameObject enemy, int model, float time)
+    public void InstanciateEnemies(GameObject enemy, int model, DateTime time)
     {
         containedEnemy = Instantiate(enemy, enemySpawn.position, Quaternion.identity);
         containedEnemy.GetComponent<Enemy>().captured = true;
         containedEnemy.GetComponent<Enemy>().UpdateModel(model);
         Debug.Log("Harvester Level: " + _level);
-        _harvestObjective = (DateTime.Now.AddMinutes(time) - DateTime.Now) / _level;
+        _harvestObjective = (time - DateTime.Now) / _level;
         _timeLeft = (float)_harvestObjective.TotalSeconds;
         _active = true;
     }

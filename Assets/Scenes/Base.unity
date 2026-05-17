@@ -404,8 +404,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1390455858}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1862417061}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
@@ -28200,7 +28200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36387880f99b48c4d8cfe30b569fb63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
-  menuPanel: {fileID: 108672115}
+  menuPanel: {fileID: 1862417056}
+  pauseMenuPanel: {fileID: 108672115}
 --- !u!114 &1862417062
 MonoBehaviour:
   m_ObjectHideFlags: 0
