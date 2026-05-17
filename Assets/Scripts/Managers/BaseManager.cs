@@ -119,6 +119,7 @@ public class BaseManager : MonoBehaviour
             {
                 playerHUD.ShowNoHarvesterPanel();
             }
+            GameManager.gm.Sombrium += 2;
             return;
         }
 
