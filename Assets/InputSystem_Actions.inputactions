@@ -52,24 +52,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Save",
-                    "type": "Button",
-                    "id": "c26b5bc8-569b-4956-ae42-5df3520752d3",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Load",
-                    "type": "Button",
-                    "id": "8d75ada4-4187-41b6-9e95-a772f85a8dd3",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Left",
                     "type": "Button",
                     "id": "75aa0dda-90fb-460d-affd-c1ac91e642d0",
@@ -91,6 +73,15 @@
                     "name": "Back",
                     "type": "Button",
                     "id": "0e03a401-4094-4282-8149-d2752bfcca1e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "c31b6a2c-e28b-4a99-8d46-f2b5736aa264",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -276,28 +267,6 @@
                 },
                 {
                     "name": "",
-                    "id": "d9c811ff-ff40-4200-83b6-cda8c9160818",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Save",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a3b0174f-2458-42b6-8815-1de8b8d366bd",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Load",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e5f42155-88fe-44f7-a54f-978c73377668",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -326,6 +295,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb79b77e-c168-45c6-90f8-4f1ceeb5d7db",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

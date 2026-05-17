@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(MoveBehaviour))]
 
 public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
@@ -137,22 +138,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         }
     }
 
-    public void OnSave(InputAction.CallbackContext context)
-    {
-        if(context.performed)
-        {
-            GameManager.gm.SaveGame();
-        }
-    }
-
-    public void OnLoad(InputAction.CallbackContext context)
-    {
-        if(context.performed)
-        {
-            GameManager.gm.LoadGame();
-        }
-    }
-
     public void OnLeft(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -186,6 +171,18 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions, IStun
         else
         {
             _aB.PlayerBack(false);
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (SceneManager.GetActiveScene().name == "Base")
+            {
+                FindFirstObjectByType<PlayerHUD>().OpenPauseMenu();
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 }

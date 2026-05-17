@@ -6,6 +6,7 @@ public class PlayerHUD : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI ombriumCounter;
     [SerializeField] private GameObject noHarvesterPanel;
+    [SerializeField] private GameObject pauseMenu;
     private void Awake()
     {
         noHarvesterPanel.SetActive(false);
@@ -22,5 +23,9 @@ public class PlayerHUD : MonoBehaviour
     private void HideNoHarvesterPanel()
     {
         noHarvesterPanel.SetActive(false);
+    }
+    public void OpenPauseMenu()
+    {
+        pauseMenu.SetActive(true);
     }
 }
